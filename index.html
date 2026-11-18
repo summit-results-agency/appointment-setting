@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Summit Results Agency | Sales Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#1FA7FF;
+  --purple:#8B5CF6;
+  --ink:#0B1220;
+  --ink2:#151E30;
+  --line:#E4E9F2;
+  --line-dark:#243149;
+  --text:#1B2536;
+  --muted:#5B6880;
+  --bg:#F5F7FB;
+  --white:#fff;
+  --green:#12A66A;
+  --amber:#C4841B;
+  --red:#D6453D;
+  --radius:14px;
+  --sidebar:280px;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 8px 24px rgba(16,24,40,.06);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+  font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;
+  overflow-wrap:break-word;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--blue)}
+
+/* ---------- LOGO ---------- */
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0}
+.logo-mark{width:34px;height:34px;flex:0 0 34px}
+.logo-img{width:34px;height:34px;flex:0 0 34px;object-fit:contain;border-radius:8px}
+.logo-text{font-weight:800;letter-spacing:.10em;font-size:15px;color:#fff;white-space:nowrap}
+.logo-text .ai{color:var(--blue)}
+.logo-sub{font-size:10px;letter-spacing:.16em;color:#8698B5;font-weight:600;text-transform:uppercase;margin-top:1px;white-space:nowrap}
+
+/* ---------- LAYOUT ---------- */
+.shell{display:flex;min-height:100vh}
+.sidebar{
+  width:var(--sidebar);flex:0 0 var(--sidebar);background:var(--ink);
+  position:fixed;top:0;left:0;bottom:0;display:flex;flex-direction:column;z-index:60;
+  border-right:1px solid var(--line-dark);
+}
+.sb-head{padding:20px 20px 16px;border-bottom:1px solid var(--line-dark)}
+.sb-nav{flex:1;overflow-y:auto;padding:8px 12px 16px;-webkit-overflow-scrolling:touch}
+.sb-nav::-webkit-scrollbar{width:6px}
+.sb-nav::-webkit-scrollbar-thumb{background:#2A3A57;border-radius:3px}
+.sb-label{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#6B7C99;font-weight:700;padding:12px 10px 5px}
+.navlink{
+  display:flex;align-items:center;gap:11px;padding:7px 12px;border-radius:10px;
+  color:#C3CEE0;text-decoration:none;font-size:14.5px;font-weight:500;line-height:1.35;
+  border:none;background:none;width:100%;text-align:left;cursor:pointer;font-family:inherit;
+  transition:background .13s,color .13s;
+}
+.navlink:hover{background:#18233A;color:#fff}
+.navlink.active{background:linear-gradient(90deg,rgba(31,167,255,.20),rgba(139,92,246,.16));color:#fff;font-weight:650}
+.navlink.active .nav-ico{background:var(--blue);color:#04121F}
+.nav-ico{
+  width:22px;height:22px;flex:0 0 22px;border-radius:6px;background:#1E2B45;color:#8FA6C6;
+  display:flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:800;
+}
+.sb-foot{padding:12px 18px 16px;border-top:1px solid var(--line-dark);background:var(--ink)}
+.sb-foot a{display:block;color:#9DB0CC;font-size:12.5px;text-decoration:none;padding:4px 0}
+.sb-foot a:hover{color:#fff}
+
+.main{flex:1;min-width:0;margin-left:var(--sidebar);display:flex;flex-direction:column}
+
+/* ---------- TOPBAR ---------- */
+.topbar{
+  display:none;position:sticky;top:0;z-index:55;background:var(--ink);
+  align-items:center;gap:12px;padding:10px 14px;padding-top:calc(10px + env(safe-area-inset-top));
+  border-bottom:1px solid var(--line-dark);
+}
+.burger{
+  width:42px;height:42px;flex:0 0 42px;border-radius:10px;border:1px solid var(--line-dark);
+  background:#162034;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;
+}
+.burger span{display:block;width:18px;height:2px;background:#fff;border-radius:2px;position:relative}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:18px;height:2px;background:#fff;border-radius:2px}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+.scrim{display:none;position:fixed;inset:0;background:rgba(6,11,20,.6);z-index:58}
+.scrim.open{display:block}
+
+/* ---------- CONTENT ---------- */
+.content{padding:38px 40px 90px;max-width:1080px;width:100%;margin:0 auto;flex:1}
+.page{display:none}
+.page.active{display:block;animation:fade .18s ease-out}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+.eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);font-weight:800;margin-bottom:8px}
+h1{font-size:33px;line-height:1.18;margin:0 0 10px;letter-spacing:-.02em;font-weight:800;color:var(--ink)}
+h2{font-size:21px;line-height:1.3;margin:36px 0 12px;letter-spacing:-.01em;font-weight:750;color:var(--ink)}
+h3{font-size:16.5px;margin:22px 0 8px;font-weight:700;color:var(--ink)}
+p{margin:0 0 13px}
+.lead{font-size:17.5px;color:var(--muted);margin:0 0 24px;max-width:70ch}
+ul,ol{margin:0 0 14px;padding-left:22px}
+li{margin:0 0 7px}
+hr{border:0;border-top:1px solid var(--line);margin:32px 0}
+
+.card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow);margin:0 0 18px}
+.card h3:first-child,.card h2:first-child{margin-top:0}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:12px 20px;border-radius:11px;background:var(--blue);color:#fff;font-weight:700;
+  text-decoration:none;font-size:15px;border:none;cursor:pointer;font-family:inherit;line-height:1.3;
+  text-align:center;transition:filter .13s,transform .13s;min-height:46px;
+}
+.btn:hover{filter:brightness(1.07)}
+.btn:active{transform:translateY(1px)}
+.btn.purple{background:var(--purple)}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.btn.dark{background:var(--ink)}
+.btnrow{display:flex;flex-wrap:wrap;gap:12px;margin:18px 0 6px}
+
+.pill{display:inline-block;padding:4px 11px;border-radius:999px;font-size:11.5px;font-weight:750;letter-spacing:.03em;line-height:1.6}
+.pill.blue{background:rgba(31,167,255,.12);color:#0B6FB0}
+.pill.purple{background:rgba(139,92,246,.13);color:#6733D6}
+.pill.green{background:rgba(18,166,106,.12);color:#0A7A4C}
+.pill.amber{background:rgba(196,132,27,.14);color:#8A5B0C}
+.pill.red{background:rgba(214,69,61,.12);color:#A82C25}
+.pill.grey{background:#EDF1F7;color:#4E5C74}
+
+.note{border-left:3px solid var(--blue);background:#F0F8FF;padding:14px 18px;border-radius:0 10px 10px 0;margin:0 0 18px}
+.note.warn{border-color:var(--amber);background:#FFF8EC}
+.note.stop{border-color:var(--red);background:#FEF3F2}
+.note.good{border-color:var(--green);background:#EFFAF5}
+.note p:last-child{margin-bottom:0}
+.note strong{color:var(--ink)}
+
+/* ---------- HOME ---------- */
+.hero{
+  background:linear-gradient(135deg,#0B1220 0%,#152340 55%,#1B2E52 100%);
+  border-radius:18px;padding:36px 38px;color:#fff;margin-bottom:26px;position:relative;overflow:hidden;
+}
+.hero::after{
+  content:"";position:absolute;right:-90px;top:-90px;width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,rgba(31,167,255,.30),transparent 68%);
+}
+.hero-inner{position:relative;z-index:2}
+.hero h1{color:#fff;font-size:32px;margin-bottom:12px}
+.hero p{color:#B9C8E0;max-width:62ch;font-size:16.5px}
+.hero .btnrow{margin-top:22px}
+
+.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.tile{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px 18px 16px;
+  text-align:left;cursor:pointer;font-family:inherit;box-shadow:var(--shadow);
+  transition:border-color .13s,transform .13s,box-shadow .13s;display:flex;flex-direction:column;gap:6px;
+}
+.tile:hover{border-color:var(--blue);transform:translateY(-2px);box-shadow:0 10px 26px rgba(16,24,40,.10)}
+.tile-num{font-size:11px;font-weight:800;color:var(--blue);letter-spacing:.1em}
+.tile-t{font-size:16px;font-weight:750;color:var(--ink);line-height:1.3}
+.tile-d{font-size:13.5px;color:var(--muted);line-height:1.5}
+
+.statrow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:26px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow)}
+.stat-v{font-size:25px;font-weight:800;color:var(--ink);letter-spacing:-.02em;line-height:1.2}
+.stat-l{font-size:12.5px;color:var(--muted);font-weight:600;margin-top:2px;line-height:1.4}
+
+/* ---------- PIPELINE ---------- */
+.pipe{display:flex;flex-direction:column;gap:0;margin:8px 0 6px}
+.pstage{
+  display:grid;grid-template-columns:34px 1fr;gap:14px;align-items:start;
+  padding:0 0 4px;position:relative;
+}
+.pstage .rail{position:relative;display:flex;flex-direction:column;align-items:center;align-self:stretch}
+.pdot{
+  width:34px;height:34px;border-radius:50%;flex:0 0 34px;display:flex;align-items:center;justify-content:center;
+  font-size:12.5px;font-weight:800;color:#fff;background:var(--blue);z-index:2;
+}
+.pstage.sdr .pdot{background:var(--blue)}
+.pstage.team .pdot{background:var(--purple)}
+.pstage.close .pdot{background:var(--green)}
+.pline{width:2px;flex:1;background:var(--line);min-height:16px}
+.pstage:last-child .pline{display:none}
+.pbody{padding:3px 0 20px}
+.pt{font-weight:700;color:var(--ink);font-size:15.5px;line-height:1.35}
+.pd{font-size:13.5px;color:var(--muted);line-height:1.55;margin-top:2px}
+.zone{
+  display:flex;align-items:center;gap:10px;margin:22px 0 12px;padding:9px 14px;border-radius:10px;
+  font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+}
+.zone.sdr{background:rgba(31,167,255,.10);color:#0B6FB0}
+.zone.team{background:rgba(139,92,246,.10);color:#6733D6}
+.zone.close{background:rgba(18,166,106,.10);color:#0A7A4C}
+
+/* ---------- SCRIPTS ---------- */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 20px;border-bottom:1px solid var(--line);padding-bottom:0}
+.tab{
+  padding:10px 16px;border-radius:10px 10px 0 0;border:1px solid transparent;border-bottom:none;
+  background:none;cursor:pointer;font-family:inherit;font-size:14.5px;font-weight:650;color:var(--muted);
+  margin-bottom:-1px;min-height:44px;
+}
+.tab.active{background:#fff;border-color:var(--line);color:var(--ink)}
+.tabpane{display:none}
+.tabpane.active{display:block}
+
+.step{display:grid;grid-template-columns:30px 1fr;gap:14px;margin:0 0 4px}
+.snum{
+  width:30px;height:30px;border-radius:9px;background:var(--ink);color:#fff;font-size:13px;font-weight:800;
+  display:flex;align-items:center;justify-content:center;flex:0 0 30px;margin-top:1px;
+}
+.sbody{padding-bottom:22px;min-width:0}
+.sh{font-weight:750;color:var(--ink);font-size:15.5px;margin-bottom:8px}
+.say{
+  background:#fff;border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:0 10px 10px 0;
+  padding:13px 16px;margin:0 0 10px;font-size:16px;line-height:1.6;color:var(--ink);
+}
+.say.alt{border-left-color:var(--purple)}
+.cue{font-size:13px;color:var(--muted);font-weight:650;margin:0 0 8px}
+.cue.stopcue{color:var(--red);font-weight:750}
+.qlist{list-style:none;padding:0;margin:0 0 10px}
+.qlist li{
+  background:#fff;border:1px solid var(--line);border-radius:10px;padding:11px 14px;margin:0 0 8px;
+  font-size:15px;color:var(--ink);display:flex;gap:10px;align-items:flex-start;
+}
+.qlist li::before{content:"?";flex:0 0 20px;width:20px;height:20px;border-radius:6px;background:rgba(31,167,255,.14);color:#0B6FB0;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.checkline{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line)}
+.checkline:last-child{border-bottom:none}
+.checkbox{width:19px;height:19px;flex:0 0 19px;border:2px solid var(--line);border-radius:5px;margin-top:3px}
+
+/* ---------- TABLES ---------- */
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:var(--radius);background:#fff;margin:0 0 18px}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:14.5px}
+th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#F8FAFD;font-weight:700;color:var(--ink);font-size:12.5px;letter-spacing:.05em;text-transform:uppercase}
+tr:last-child td{border-bottom:none}
+
+/* ---------- PRICING ---------- */
+.plan{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:flex-start}
+.plan>*{width:100%}
+.plan>.pill{width:auto}
+.plan>.note:last-child{margin-top:auto!important}
+.plan.feature{border:2px solid var(--purple)}
+.price{font-size:38px;font-weight:800;color:var(--ink);letter-spacing:-.03em;line-height:1.1}
+.price span{font-size:15px;font-weight:600;color:var(--muted);letter-spacing:0}
+.featlist{list-style:none;padding:0;margin:16px 0 0}
+.featlist li{padding-left:26px;position:relative;margin:0 0 8px;font-size:14.5px;line-height:1.5}
+.featlist li::before{
+  content:"";position:absolute;left:0;top:7px;width:16px;height:16px;border-radius:50%;
+  background:rgba(18,166,106,.14);
+}
+.featlist li::after{
+  content:"";position:absolute;left:5px;top:11px;width:5px;height:8px;border:solid var(--green);
+  border-width:0 2px 2px 0;transform:rotate(45deg);
+}
+.hl{background:linear-gradient(135deg,var(--blue),var(--purple));color:#fff;border-radius:12px;padding:18px 22px;margin:0 0 18px}
+.hl .k{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;opacity:.85}
+.hl .v{font-size:23px;font-weight:800;letter-spacing:-.01em;line-height:1.25;margin-top:2px}
+.hl p{color:rgba(255,255,255,.92);margin:6px 0 0;font-size:14.5px}
+
+/* ---------- MISC ---------- */
+.soon{
+  border:2px dashed var(--line);background:#fff;border-radius:var(--radius);
+  padding:44px 26px;text-align:center;color:var(--muted);
+}
+.soon .big{font-size:19px;font-weight:750;color:var(--ink);margin-bottom:6px}
+.linkcard{
+  display:flex;align-items:center;gap:16px;background:var(--ink);color:#fff;border-radius:var(--radius);
+  padding:20px 24px;text-decoration:none;margin:0 0 16px;box-shadow:var(--shadow);flex-wrap:wrap;
+}
+.linkcard .lc-t{font-size:17px;font-weight:750;line-height:1.3}
+.linkcard .lc-d{font-size:13.5px;color:#A7B8D2;line-height:1.5;margin-top:2px}
+.linkcard .lc-go{margin-left:auto;background:var(--blue);color:#fff;padding:11px 18px;border-radius:10px;font-weight:700;font-size:14.5px;white-space:nowrap}
+.linkcard .lc-body{min-width:0;flex:1 1 240px}
+.urlmono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12.5px;color:#7D8CA6;word-break:break-all;margin-top:6px;display:block}
+.pagenav{display:flex;justify-content:space-between;gap:12px;margin-top:44px;padding-top:22px;border-top:1px solid var(--line);flex-wrap:wrap}
+.pagenav button{flex:1 1 200px}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:1024px){
+  .g4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .statrow{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .content{padding:32px 28px 80px}
+}
+@media(max-width:860px){
+  .sidebar{transform:translateX(-100%);transition:transform .22s ease;width:290px;flex-basis:290px}
+  .sidebar.open{transform:none;box-shadow:0 0 50px rgba(0,0,0,.5)}
+  .main{margin-left:0}
+  .topbar{display:flex}
+  .content{padding:22px 16px 72px}
+  h1{font-size:26px}
+  h2{font-size:19px;margin-top:30px}
+  .lead{font-size:16px}
+  .hero{padding:26px 20px;border-radius:14px}
+  .hero h1{font-size:25px}
+  .hero p{font-size:15.5px}
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .tiles,.statrow{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .tile{padding:14px 13px}
+  .tile-t{font-size:14.5px}
+  .tile-d{font-size:12.5px}
+  .stat{padding:13px 14px}
+  .stat-v{font-size:21px}
+  .stat-l{font-size:11.5px}
+  .card{padding:18px 16px}
+  .btn{width:100%}
+  .btnrow{gap:10px}
+  .linkcard{padding:18px 16px}
+  .linkcard .lc-go{margin-left:0;width:100%;text-align:center}
+  .step{grid-template-columns:26px 1fr;gap:11px}
+  .snum{width:26px;height:26px;flex:0 0 26px;font-size:12px}
+  .say{font-size:15.5px;padding:12px 14px}
+  .tabs{gap:6px}
+  .tab{flex:1 1 auto;padding:10px 10px;font-size:13.5px;text-align:center}
+  .price{font-size:32px}
+  .pstage{grid-template-columns:30px 1fr;gap:11px}
+  .pdot{width:30px;height:30px;flex:0 0 30px;font-size:11.5px}
+  .pagenav button{flex:1 1 100%}
+}
+@media(max-width:400px){
+  .content{padding:20px 13px 68px}
+  h1{font-size:23px}
+  .hero h1{font-size:22px}
+}
+@media print{.sidebar,.topbar,.pagenav,.scrim{display:none!important}.main{margin-left:0}.page{display:block!important}}
+
+
+/* Summit Results brand: paper, ink, ember, and editorial type */
+:root{
+  --blue:#E2542B;--purple:#C08B52;--ink:#0B1220;--ink2:#131E30;
+  --line:#DED6C6;--line-dark:#243047;--text:#1D2737;--muted:#6B7789;
+  --bg:#F5F1E9;--white:#FFFDF8;--green:#4E7A6B;--amber:#B67A36;
+  --red:#B94D3D;--radius:12px;--sidebar:274px;--shadow:none;
+  --font-body:"Archivo",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --font-display:"Fraunces",Georgia,"Times New Roman",serif;
+}
+body{font-family:var(--font-body);letter-spacing:-.01em;background:var(--bg);color:var(--text)}
+a{color:var(--blue)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.sidebar{background:#F1EBE1;border-right:1px solid #DDD3C3;box-shadow:none}
+.sb-head{padding:20px 22px 17px;border-color:#DDD3C3;min-height:104px;display:flex;align-items:center}
+.logo{display:flex;align-items:center;width:100%;gap:11px}
+.brand-mark{width:38px;height:38px;object-fit:contain;flex:0 0 38px}
+.brand-rule{height:29px;width:1px;background:#B8AD9D;flex:0 0 1px}
+.brand-word{width:155px;height:26px;object-fit:contain;object-position:left center;min-width:0}
+.sb-label{color:#8B8276;font-size:10px;letter-spacing:.19em;margin-top:12px;padding:12px 12px 6px}
+.sb-nav{padding:8px 12px 20px}
+.sb-nav::-webkit-scrollbar-thumb{background:#C8BCAA}
+.navlink{color:#3C4655;border-radius:6px;font-size:13.5px;font-weight:600;padding:9px 11px;gap:12px}
+.navlink:hover{background:#E9DFD1;color:var(--ink)}
+.navlink.active{background:#E8DCCD;color:var(--ink);font-weight:750;box-shadow:inset 3px 0 0 var(--blue)}
+.nav-ico{background:#E3D9CB;color:#5A6472;border-radius:5px}
+.navlink.active .nav-ico{background:var(--blue);color:white}
+.sb-foot{background:#F1EBE1;border-color:#DDD3C3;padding:16px 22px}
+.sb-foot a{color:#566273}.sb-foot a:hover{color:var(--blue)}
+.topbar{background:rgba(245,241,233,.96);border-color:var(--line);backdrop-filter:blur(12px)}
+.burger{background:transparent;border-color:#C8BCAA;color:var(--ink)}
+.burger span,.burger span:before,.burger span:after{background:var(--ink)}
+.content{max-width:1180px;padding:48px 52px 100px}
+.page:not(#page-home).active{max-width:980px}
+.page:not(#page-home)>.eyebrow{display:flex;align-items:center;gap:12px}
+.page:not(#page-home)>.eyebrow:before{content:"";width:24px;height:1px;background:var(--blue)}
+.eyebrow{color:var(--blue);font-size:10px;letter-spacing:.19em;font-weight:800;margin-bottom:14px}
+h1,h2,h3{color:var(--ink)}
+h1,.page:not(#page-home)>h1{font-family:var(--font-display);font-weight:600;letter-spacing:-.045em}
+.page:not(#page-home)>h1{font-size:clamp(38px,4vw,56px);line-height:1.08;margin-bottom:17px}
+h2{font-family:var(--font-display);font-size:clamp(25px,2.4vw,32px);font-weight:600;line-height:1.2;letter-spacing:-.035em;margin:42px 0 16px}
+h3{font-size:17px;letter-spacing:-.025em}
+.lead{font-size:18px;line-height:1.63;color:#5D6571;max-width:66ch;margin-bottom:30px}
+.card,.plan,.stat,.tile{border:1px solid var(--line);box-shadow:none;background:var(--white)}
+.card{padding:27px 29px;border-radius:12px}
+.card h3{font-size:17px}
+.note{background:#F0E7DA;border:1px solid #E6D9C8;border-left:3px solid var(--blue);border-radius:0 8px 8px 0}
+.note.warn{background:#FBF0DF;border-color:#EAD3AE;border-left-color:var(--amber)}
+.note.good{background:#E8F0E9;border-color:#C8DBCB;border-left-color:var(--green)}
+.note.stop{background:#FAE9E4;border-color:#E8C7BD;border-left-color:var(--red)}
+.btn{background:var(--blue);color:#fff;border-radius:6px;box-shadow:0 8px 18px rgba(226,84,43,.16);font-size:14px;font-weight:750;padding:13px 20px;min-height:46px}
+.btn:hover{filter:brightness(.94)}
+.btn.purple{background:var(--ink);box-shadow:none}
+.btn.dark{background:var(--ink);box-shadow:none}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid #BFC0BE;box-shadow:none}
+.btn.ghost:hover{background:#EBE5D9}
+.pill{border-radius:4px;text-transform:uppercase;letter-spacing:.07em;font-size:10px}
+.pill.blue{background:#FCEAE2;color:#B84825}
+.pill.purple{background:#F2E9DC;color:#966234}
+.pill.green{background:#E7EFE8;color:#416E60}
+.pill.amber{background:#F6EAD6;color:#9A6728}
+.pill.red{background:#F7E5DF;color:#A94435}
+.pill.grey{background:#EBE5D9;color:#566273}
+.hero{background:#0B1220;border:1px solid #253046;border-radius:18px;min-height:365px;padding:45px 48px;display:flex;align-items:center;margin-bottom:24px;isolation:isolate}
+.hero:before{content:"";position:absolute;inset:-60% -20% -50% 30%;background:repeating-radial-gradient(ellipse at 48% 48%,transparent 0 45px,rgba(226,233,240,.07) 46px 47px,transparent 48px 87px);transform:rotate(-12deg);pointer-events:none;z-index:0}
+.hero:after{content:"";position:absolute;right:-130px;bottom:-180px;top:auto;width:500px;height:500px;background:radial-gradient(circle,rgba(226,84,43,.12),transparent 68%);pointer-events:none;z-index:0}
+.hero-inner{max-width:680px}
+.hero .eyebrow{color:#F07A52!important}
+.hero h1{font-family:var(--font-display);font-size:clamp(40px,4.2vw,60px);font-weight:600;letter-spacing:-.055em;line-height:1.07;color:#F5F1E9;max-width:650px}
+.hero p{font-size:17px;color:#B9C1CE;max-width:58ch;line-height:1.65}
+.hero .btnrow{margin-top:24px}
+.hero .btn.ghost,.hero .btn.purple{background:transparent;color:#F5F1E9;border:1px solid #4B5566;box-shadow:none}
+.statrow{gap:0;margin-bottom:38px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--white)}
+.stat{border:0;border-right:1px solid var(--line);border-radius:0;padding:22px 20px;background:transparent}
+.stat:last-child{border-right:0}
+.stat-v{font-family:var(--font-display);font-size:30px;font-weight:600;letter-spacing:-.045em}
+.stat-l{font-size:11.5px;color:#6B7789;line-height:1.45;margin-top:5px}
+.tiles{gap:12px}
+.tile{min-height:132px;border-radius:10px;padding:20px}
+.tile:hover{border-color:#D0876B;box-shadow:0 12px 24px rgba(11,18,32,.05)}
+.tile-num{color:var(--blue);font-size:10px}
+.tile-t{font-size:16px;font-weight:750}
+.tile-d{font-size:13px}
+.linkcard{background:var(--ink);border:1px solid #2B3445;border-radius:10px;box-shadow:none}
+.linkcard .lc-d{color:#AAB3C0}
+.linkcard .lc-go{background:var(--blue);border-radius:6px}
+.say{background:#FFFDF8;border-color:var(--line);border-left:3px solid var(--blue);border-radius:0 8px 8px 0}
+.say.alt{border-left-color:var(--purple)}
+.snum{background:var(--ink);border-radius:5px}
+.qlist li{background:var(--white);border-color:var(--line);border-radius:8px}
+.qlist li:before{background:#FCEAE2;color:#B84825}
+.tab.active{border-top:3px solid var(--blue);color:var(--ink)}
+.tab{border-radius:6px 6px 0 0}
+.plan{border-radius:12px;padding:26px}
+.plan.feature{background:var(--ink);border:1px solid #293247;box-shadow:none;color:#E7E9ED}
+.plan.feature .price,.plan.feature h3{color:#F5F1E9}
+.plan.feature p,.plan.feature li{color:#C5CCD6}
+.plan.feature .price span{color:#B7BECA}
+.plan.feature .pill.purple{background:rgba(226,84,43,.19);color:#F5906F}
+.plan.feature .btn{background:var(--blue)}
+.price,.pricing-grid .price{font-family:var(--font-display);font-size:39px;font-weight:600}
+.featlist li:before{background:#E7EFE8}
+.plan.feature .featlist li:before{background:#243C3B}
+.plan.feature .featlist li:after{border-color:#70C49F}
+.hl{background:var(--ink);border-radius:10px}
+.hl .v{font-family:var(--font-display);font-size:26px;font-weight:600}
+.pdot,.pstage.sdr .pdot{background:var(--blue)}
+.pstage.team .pdot{background:var(--purple)}
+.pstage.close .pdot{background:var(--green)}
+.zone.sdr{background:#FCEAE2;color:#B84825}
+.zone.team{background:#F2E9DC;color:#966234}
+.zone.close{background:#E7EFE8;color:#416E60}
+.roi-fields input,.roi-fields select{background:#FFFDF8;border-color:var(--line);border-radius:6px}
+.roi-results>div{background:#F6F0E7;border-color:var(--line);border-radius:8px}
+.roi-results strong{font-family:var(--font-display);font-size:25px;font-weight:600}
+.text-nav{color:var(--blue)}
+@media(max-width:1050px){.pricing-grid{grid-template-columns:1fr 1fr}.pricing-grid .plan.feature{grid-column:span 2;grid-row:1}}
+@media(max-width:860px){
+ .sidebar{background:#F1EBE1}.content{padding:28px 18px 76px}.topbar{padding:8px 16px;padding-top:calc(8px + env(safe-area-inset-top))}
+ .topbar .brand-mark{width:30px;height:30px;flex-basis:30px}.topbar .brand-word{width:140px;height:25px}
+ .hero{min-height:auto;padding:34px 27px}.hero h1{font-size:clamp(35px,8vw,48px)}
+ .page:not(#page-home)>h1{font-size:clamp(36px,7vw,48px)}
+ .statrow{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}
+ .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}.tile{min-height:125px}
+ .card{padding:21px}.pricing-grid{grid-template-columns:1fr}.pricing-grid .plan.feature{grid-column:auto;grid-row:auto}
+}
+@media(max-width:480px){
+ .tiles{grid-template-columns:1fr}.tile{min-height:0}
+ .hero{padding:29px 21px}.hero h1{font-size:36px}
+ .page:not(#page-home)>h1{font-size:37px}
+ .pricing-grid .price{font-size:36px}
+}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+@media print{.content{max-width:none;padding:10px}.page{break-before:page}.page:first-child{break-before:auto}.hero{print-color-adjust:exact}}
+/* Revenue opportunity tool */
+.roi-intro{max-width:70ch;color:#566273;font-size:16px;margin-bottom:18px}
+.roi-card{background:#0B1220;border:1px solid #293247;border-radius:16px;overflow:hidden;color:#F5F1E9;margin:0 0 22px;box-shadow:0 20px 40px rgba(11,18,32,.10)}
+.roi-head{padding:29px 32px 16px;display:flex;justify-content:space-between;gap:22px;align-items:start}
+.roi-kicker{display:block;color:#F07A52;font-size:10px;letter-spacing:.2em;font-weight:800;margin-bottom:9px}
+.roi-head h3{font-family:var(--font-display);font-size:clamp(25px,3vw,34px);font-weight:600;letter-spacing:-.035em;line-height:1.12;color:#F5F1E9;margin:0 0 7px}
+.roi-head p{color:#9EA8B7;font-size:14px;margin:0}
+.roi-fee{border:1px solid #354056;border-radius:8px;padding:11px 14px;min-width:132px;text-align:right;white-space:nowrap}
+.roi-fee small{display:block;color:#9EA8B7;font-size:9px;letter-spacing:.13em;font-weight:800}
+.roi-fee strong{font-family:var(--font-display);font-size:25px;font-weight:600;color:#F5F1E9}
+.roi-fee span{font-size:12px;color:#9EA8B7}
+.roi-fields{display:grid;grid-template-columns:1fr .85fr 1.15fr;gap:12px;padding:16px 32px 30px;margin:0}
+.roi-fields label{display:block;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#A7B0BF}
+.roi-fields input,.roi-fields select{display:block;width:100%;margin-top:9px;padding:13px 14px;border:1px solid #3A465B;border-radius:7px;background:#1B2639;color:#F5F1E9;font:600 16px var(--font-body);min-height:49px}
+.roi-fields input::placeholder{color:#8F9AAB;opacity:1}
+.roi-fields input:focus,.roi-fields select:focus{outline:2px solid #E2542B;outline-offset:1px}
+.roi-output{background:#131E30;border-top:1px solid #354056;padding:27px 32px 29px}
+.roi-prompt{color:#AAB4C1;font-size:14px;margin:0 0 14px}
+.roi-prompt[hidden],.roi-error[hidden]{display:none}
+.roi-error{color:#FFC4B4;font-size:13px;font-weight:700;margin:0 0 14px}
+.roi-primary{padding:0 0 23px;border-bottom:1px solid #354056}
+.roi-primary span{display:block;color:#F07A52;font-size:10px;letter-spacing:.17em;font-weight:800}
+.roi-primary strong{display:block;color:#F5F1E9;font-family:var(--font-display);font-size:clamp(37px,4.5vw,54px);font-weight:600;letter-spacing:-.045em;line-height:1.18;margin:6px 0}
+.roi-primary small{font-size:12px;color:#9EA8B7}
+.roi-results{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin:0;padding:22px 0}
+.roi-results>div{padding:0 18px;border:0;border-right:1px solid #354056;border-radius:0;background:transparent}
+.roi-results>div:first-child{padding-left:0}
+.roi-results>div:last-child{border-right:0;padding-right:0}
+.roi-results span{display:block;color:#9EA8B7;font-size:12px;line-height:1.4}
+.roi-results strong{display:block;color:#F5F1E9;font-family:var(--font-display);font-size:25px;font-weight:600;line-height:1.25;margin-top:7px;overflow-wrap:anywhere}
+.roi-break{background:#223348;border-left:3px solid #E2542B;border-radius:0 7px 7px 0;padding:14px 17px}
+.roi-break span{display:block;color:#F07A52;font-size:10px;letter-spacing:.16em;font-weight:800;margin-bottom:5px}
+.roi-break p{color:#EBEDF0;font-size:14px;line-height:1.55;margin:0}
+.roi-foot{padding:16px 32px 20px;color:#9EA8B7;font-size:11.5px;line-height:1.6;border-top:1px solid #293247}
+.payment-btn{display:inline-flex;margin-top:16px;font-size:13px;text-align:center}
+.text-nav{padding:0;border:0;background:none;color:var(--blue);font:inherit;text-decoration:underline;cursor:pointer}
+@media(max-width:700px){
+ .roi-head{padding:23px 20px 11px;flex-direction:column}
+ .roi-fee{text-align:left}
+ .roi-fields{grid-template-columns:1fr;padding:12px 20px 24px}
+ .roi-output{padding:23px 20px}
+ .roi-results{grid-template-columns:1fr;gap:16px}
+ .roi-results>div,.roi-results>div:first-child,.roi-results>div:last-child{padding:0 0 15px;border-right:0;border-bottom:1px solid #354056}
+ .roi-results>div:last-child{border-bottom:0;padding-bottom:0}
+ .roi-foot{padding:15px 20px}
+}
+
+/* ---------- FULL-CYCLE SALES HUB ---------- */
+.sales-hero{min-height:390px}
+.deal-principle{display:grid;grid-template-columns:135px 1fr;gap:22px;align-items:start;background:#FFFDF8;border:1px solid var(--line);border-left:4px solid var(--blue);padding:22px 24px;border-radius:0 12px 12px 0;margin:0 0 34px}
+.deal-principle.compact{margin:26px 0 0}
+.deal-principle strong{font-family:var(--font-display);font-size:22px;line-height:1.25;color:var(--ink);font-weight:600}
+.deal-principle p{margin:6px 0 0;color:var(--muted)}
+.deal-kicker{font-size:9.5px;letter-spacing:.17em;font-weight:800;color:var(--blue);padding-top:5px}
+.phase-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:0 0 36px}
+.phase-card{background:var(--ink);border:1px solid #2B3445;border-radius:12px;padding:24px;text-align:left;color:#fff;cursor:pointer;font-family:inherit;transition:transform .15s,border-color .15s}
+.phase-card:hover{transform:translateY(-2px);border-color:#E2542B}
+.phase-card strong{display:block;font-family:var(--font-display);font-size:24px;font-weight:600;color:#F5F1E9;margin:16px 0 8px}
+.phase-card p{color:#AAB3C0;font-size:13.5px;line-height:1.55;margin:0}
+.phase-no{font-size:10px;font-weight:800;color:#F07A52;letter-spacing:.15em}
+.phase-tag{float:right;font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:#AAB3C0}
+.priority-stack,.discount-flow{display:grid;gap:10px;margin:0 0 24px}
+.priority-stack>div,.discount-flow>div{display:grid;grid-template-columns:38px 155px 1fr;gap:14px;align-items:center;background:#FFFDF8;border:1px solid var(--line);border-radius:10px;padding:15px 18px}
+.priority-stack span,.discount-flow span{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--ink);color:white;font-size:11px;font-weight:800}
+.priority-stack strong,.discount-flow strong{color:var(--ink)}
+.priority-stack p,.discount-flow p{margin:0;color:var(--muted);font-size:13.5px}
+.process-strip{display:grid;grid-template-columns:repeat(6,1fr);border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#FFFDF8;margin:0 0 34px}
+.process-strip>div{padding:17px 14px;border-right:1px solid var(--line)}
+.process-strip>div:last-child{border-right:0}
+.process-strip span{display:block;color:var(--blue);font-size:9px;font-weight:800;letter-spacing:.14em}
+.process-strip strong{display:block;color:var(--ink);font-size:13.5px;margin:5px 0 1px}
+.process-strip small{color:var(--muted);font-size:11px}
+.integration-card{padding:24px}
+.integration-row{display:flex;flex-wrap:wrap;gap:8px}
+.integration-row span{padding:8px 12px;border:1px solid var(--line);background:#F5F1E9;border-radius:999px;color:var(--ink);font-size:12px;font-weight:750}
+.value-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#FFFDF8}
+.value-card{padding:24px;border-right:1px solid var(--line)}
+.value-card:last-child{border-right:0}
+.value-card span{font-size:10px;text-transform:uppercase;letter-spacing:.13em;color:var(--muted);font-weight:800}
+.value-card strong{display:block;font-family:var(--font-display);font-size:31px;line-height:1.1;margin:8px 0;color:var(--ink);font-weight:600}
+.value-card p{font-size:12.5px;color:var(--muted);margin:0}
+.fineprint{font-size:12px;color:var(--muted);margin-top:9px}
+.conversation-path{position:relative;margin:8px 0 26px}
+.conv-step{display:grid;grid-template-columns:38px 1fr;gap:14px;align-items:start;margin-bottom:10px}
+.conv-step>span{width:34px;height:34px;border-radius:8px;background:var(--ink);color:white;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800}
+.conv-step>div{background:#FFFDF8;border:1px solid var(--line);border-radius:10px;padding:15px 18px}
+.conv-step strong{display:block;color:var(--ink);margin-bottom:5px}
+.conv-step p{margin:0 0 6px;color:#4D5869}
+.conv-step p:last-child{margin-bottom:0}
+.objection-framework{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:0 0 32px}
+.objection-framework>div{background:var(--ink);border-radius:9px;padding:15px 13px;color:white}
+.objection-framework span{color:#F07A52;font-size:9px;font-weight:800}
+.objection-framework strong{display:block;font-size:12.5px;margin:5px 0;color:#F5F1E9}
+.objection-framework p{font-size:11px;color:#AAB3C0;margin:0}
+.objection-card{background:#FFFDF8;border:1px solid var(--line);border-radius:12px;padding:23px 24px;margin:0 0 18px}
+.objection-card.featured{border-left:4px solid var(--blue);border-radius:0 12px 12px 0}
+.objection-card .say:last-child{margin-bottom:0}
+.demo-card{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.demo-card>div{max-width:620px}
+.onboard-roadmap{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0 0 34px}
+.onboard-roadmap>div{background:#FFFDF8;border:1px solid var(--line);border-radius:11px;padding:20px}
+.onboard-roadmap span{font-size:9px;color:var(--blue);font-weight:800;letter-spacing:.15em}
+.onboard-roadmap strong{display:block;font-family:var(--font-display);font-size:20px;font-weight:600;color:var(--ink);margin:7px 0}
+.onboard-roadmap p{font-size:12.5px;color:var(--muted);margin:0}
+@media(max-width:900px){
+ .phase-grid{grid-template-columns:1fr}
+ .process-strip{grid-template-columns:repeat(3,1fr)}
+ .process-strip>div:nth-child(3){border-right:0}
+ .process-strip>div:nth-child(-n+3){border-bottom:1px solid var(--line)}
+ .objection-framework{grid-template-columns:repeat(3,1fr)}
+ .value-grid{grid-template-columns:1fr}
+ .value-card{border-right:0;border-bottom:1px solid var(--line)}
+ .value-card:last-child{border-bottom:0}
+ .onboard-roadmap{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:650px){
+ .deal-principle{grid-template-columns:1fr;gap:8px}
+ .priority-stack>div,.discount-flow>div{grid-template-columns:36px 1fr;gap:10px}
+ .priority-stack p,.discount-flow p{grid-column:2}
+ .process-strip{grid-template-columns:repeat(2,1fr)}
+ .process-strip>div{border-bottom:1px solid var(--line)}
+ .process-strip>div:nth-child(2n){border-right:0}
+ .process-strip>div:nth-last-child(-n+2){border-bottom:0}
+ .objection-framework{grid-template-columns:1fr 1fr}
+ .demo-card{align-items:flex-start;flex-direction:column}
+ .onboard-roadmap{grid-template-columns:1fr}
+}
+
+
+.sales-modal{display:none;position:fixed;inset:0;z-index:200;align-items:center;justify-content:center;padding:22px}
+.sales-modal.open{display:flex}
+.sales-modal-backdrop{position:absolute;inset:0;background:rgba(11,18,32,.72);backdrop-filter:blur(4px)}
+.sales-modal-panel{position:relative;z-index:1;width:min(920px,100%);max-height:calc(100vh - 44px);overflow:auto;background:#FFFDF8;border:1px solid #D9CDBC;border-radius:16px;box-shadow:0 30px 90px rgba(11,18,32,.3)}
+.sales-modal-head{display:flex;justify-content:space-between;gap:24px;align-items:flex-start;padding:28px 30px 20px;border-bottom:1px solid var(--line)}
+.sales-modal-head h2{margin:4px 0 7px;font-size:30px}
+.sales-modal-head p{margin:0;color:var(--muted);font-size:14px}
+.modal-x{width:38px;height:38px;flex:0 0 38px;border-radius:50%;border:1px solid var(--line);background:#F5F1E9;color:var(--ink);font-size:26px;line-height:1;cursor:pointer}
+.sales-modal-fields{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;padding:22px 30px}
+.sales-modal-fields label{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#6B7789;font-weight:800}
+.sales-modal-fields input,.sales-modal-fields select{display:block;width:100%;margin-top:8px;padding:12px 13px;border:1px solid var(--line);border-radius:7px;background:#fff;color:var(--ink);font:650 15px var(--font-body);min-height:47px}
+.percent-input{position:relative}.percent-input span{position:absolute;right:13px;bottom:11px;color:var(--muted);font-weight:800}.percent-input input{padding-right:34px}
+.sales-modal-results{background:var(--ink);color:#fff;padding:27px 30px}
+.modal-primary{padding-bottom:21px;border-bottom:1px solid #354056}
+.modal-primary span,.modal-talk-track span{display:block;color:#F07A52;font-size:9px;letter-spacing:.16em;font-weight:800}
+.modal-primary strong{display:block;font-family:var(--font-display);font-weight:600;font-size:45px;letter-spacing:-.04em;line-height:1.15;margin:6px 0;color:#F5F1E9}
+.modal-primary small{color:#9EA8B7}
+.modal-result-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:22px 0}
+.modal-result-grid>div{padding:13px 18px;border-right:1px solid #354056;border-bottom:1px solid #354056}
+.modal-result-grid>div:nth-child(3n){border-right:0}.modal-result-grid>div:nth-last-child(-n+3){border-bottom:0}
+.modal-result-grid span{display:block;color:#9EA8B7;font-size:11px}
+.modal-result-grid strong{display:block;color:#F5F1E9;font-family:var(--font-display);font-size:23px;font-weight:600;margin-top:5px}
+.modal-talk-track{background:#223348;border-left:3px solid var(--blue);padding:15px 17px;border-radius:0 8px 8px 0}
+.modal-talk-track p{margin:5px 0 0;color:#EEF0F3;font-size:14px;line-height:1.55}
+.sales-modal-foot{padding:14px 30px 18px;color:#7A8492;font-size:11px}
+@media(max-width:760px){.sales-modal{padding:10px}.sales-modal-panel{max-height:calc(100vh - 20px)}.sales-modal-head{padding:22px 18px 16px}.sales-modal-head h2{font-size:25px}.sales-modal-fields{grid-template-columns:1fr 1fr;padding:18px}.sales-modal-results{padding:22px 18px}.modal-result-grid{grid-template-columns:1fr 1fr}.modal-result-grid>div{border-right:1px solid #354056!important;border-bottom:1px solid #354056!important}.modal-result-grid>div:nth-child(2n){border-right:0!important}.modal-result-grid>div:nth-last-child(-n+2){border-bottom:0!important}}
+@media(max-width:460px){.sales-modal-fields,.modal-result-grid{grid-template-columns:1fr}.modal-result-grid>div{border-right:0!important}.modal-result-grid>div:nth-last-child(2){border-bottom:1px solid #354056!important}.modal-primary strong{font-size:36px}}
+
+.report-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-bottom:14px}.report-grid label,.report-wide{display:flex;flex-direction:column;gap:6px;font-weight:700;font-size:14px;margin-bottom:14px}.report-grid input,.report-grid select,.report-wide textarea{border:1px solid var(--line);border-radius:10px;padding:12px;font:inherit;width:100%;background:#fff;color:var(--text)}.report-grid input:focus,.report-grid select:focus,.report-wide textarea:focus{outline:2px solid var(--blue);outline-offset:1px}.report-help{font-size:13px;color:var(--muted)}.report-status{margin-top:12px;font-weight:700}.report-status.error{color:var(--red)}.report-status.success{color:var(--green)}@media(max-width:620px){.report-grid{grid-template-columns:1fr}}
+#low-dials-reason-wrap[hidden]{display:none!important}
+
+/* Daily report confirmation */
+.report-confirm-overlay[hidden]{display:none!important}
+.report-confirm-overlay{position:fixed;inset:0;z-index:210;background:rgba(6,11,20,.64);display:flex;align-items:center;justify-content:center;padding:20px}
+.report-confirm-card{width:100%;max-width:420px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 24px 80px rgba(6,11,20,.28);padding:30px;text-align:center}
+.report-confirm-icon{width:58px;height:58px;background:#E9FAF2;color:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 15px;font-size:30px;font-weight:800}
+.report-confirm-card h2{margin:0 0 7px;font-size:23px}
+.report-confirm-card p{color:var(--muted);margin:0 0 23px}
+.report-confirm-card .btn{width:100%}
+</style>
+</head>
+<body>
+<div class="scrim" id="scrim" aria-hidden="true"></div>
+
+<div class="shell">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sb-head">
+      <a class="logo" href="#home" data-go="home">
+        <!-- Summit Results brand -->
+        <img class="brand-mark" src="https://summitresultsagency.com/assets/img/mark-dark.png" alt="" width="585" height="240"><span class="brand-rule" aria-hidden="true"></span><img class="brand-word" src="https://summitresultsagency.com/assets/img/word-dark.png" alt="Summit Results" width="1380" height="118">
+
+      </a>
+    </div>
+
+
+    <nav class="sb-nav" id="navlist">
+      <div class="sb-label">Sales Guide</div>
+      <button class="navlink active" data-go="home"><span class="nav-ico">&#9632;</span> Home</button>
+
+      <div class="sb-label">Foundation</div>
+      <button class="navlink" data-go="start"><span class="nav-ico">1</span> Start Here</button>
+      <button class="navlink" data-go="process"><span class="nav-ico">2</span> Sales Process</button>
+      <button class="navlink" data-go="product"><span class="nav-ico">3</span> Product &amp; Scope</button>
+      <button class="navlink" data-go="pricing"><span class="nav-ico">4</span> Pricing &amp; Offer</button>
+
+      <div class="sb-label">Sell</div>
+      <button class="navlink" data-go="scripts"><span class="nav-ico">5</span> Cold Call Scripts</button>
+      <button class="navlink" data-go="qualification"><span class="nav-ico">6</span> Appointment Qualification</button>
+      <button class="navlink" data-go="booking"><span class="nav-ico">7</span> Book &amp; Confirm</button>
+      <button class="navlink" data-go="objections"><span class="nav-ico">8</span> Objection Handling</button>
+      <div class="sb-label">After Booking</div>
+      <button class="navlink" data-go="closing"><span class="nav-ico">9</span> Demo &amp; Closing Scripts</button>
+      <button class="navlink" data-go="followup"><span class="nav-ico">10</span> Follow-Ups</button>
+      <button class="navlink" data-go="onboarding"><span class="nav-ico">11</span> Client Onboarding</button>
+      <button class="navlink" data-go="expectations"><span class="nav-ico">✓</span> Daily Standards</button>
+    <button class="navlink" data-go="activity"><span class="nav-ico">✓</span> Daily Activity Form</button>
+</nav>
+
+
+    <div class="sb-foot">
+      <div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#8B8276;font-weight:800">Summit Results Agency</div>
+      <div style="font-size:13px;color:#3C4655;margin-top:4px;font-weight:700">Qualify. Book. Demo. Close.</div>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <div class="main">
+
+    <header class="topbar">
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span></button>
+      <a class="logo" href="#home" data-go="home">
+        <img class="brand-mark" src="https://summitresultsagency.com/assets/img/mark-dark.png" alt="" width="585" height="240"><span class="brand-rule" aria-hidden="true"></span><img class="brand-word" src="https://summitresultsagency.com/assets/img/word-dark.png" alt="Summit Results" width="1380" height="118">
+
+      </a>
+    </header>
+
+
+    <main class="content" id="content">
+
+    <!-- ================= HOME ================= -->
+    <section class="page active" id="page-home">
+<div class="hero sales-hero"><div class="hero-inner"><div class="eyebrow" style="color:#F07A52">Summit Results Agency · Sales Guide</div><h1>From first call to live client.</h1><p>Find the right business, book a properly qualified custom demo, show them what we built, and help them make a decision.</p><div class="btnrow"><button class="btn" data-go="scripts">Start a Call</button><button class="btn ghost" data-go="qualification">Qualification Checklist</button></div></div></div>
+<div class="statrow"><div class="stat"><div class="stat-v">125+</div><div class="stat-l">Minimum outbound dials per working day</div></div><div class="stat"><div class="stat-v">3+</div><div class="stat-l">Qualified appointments per full working day</div></div><div class="stat"><div class="stat-v">3+</div><div class="stat-l">Sales closed per week</div></div><div class="stat"><div class="stat-v">Daily</div><div class="stat-l">Activity report before finishing work</div></div></div>
+<div class="note warn"><strong>What counts:</strong> An appointment with the right person, a real need, an honest price conversation, and a reason to show up. Booking random calendar slots does not help you or the team. Keep the CRM updated and submit your report every working day.</div>
+<h2>The sales process</h2><div class="phase-grid"><button class="phase-card" data-go="scripts"><span class="phase-no">01</span><span class="phase-tag">Connect</span><strong>Find the problem.</strong><p>Reach the decision maker and understand what happens to missed calls.</p></button><button class="phase-card" data-go="booking"><span class="phase-no">02</span><span class="phase-tag">Qualify &amp; book</span><strong>Set up the custom demo.</strong><p>Discuss the $397 price, confirm fit, and book a time they will attend.</p></button><button class="phase-card" data-go="closing"><span class="phase-no">03</span><span class="phase-tag">Demo &amp; close</span><strong>Show the solution.</strong><p>Walk through their custom receptionist, handle questions, and ask for the sale.</p></button></div>
+<h2>Quick access</h2><div class="tiles"><button class="tile" data-go="scripts"><span class="tile-num">01</span><span class="tile-t">Cold Call Scripts</span><span class="tile-d">Three natural ways to open and book.</span></button><button class="tile" data-go="qualification"><span class="tile-num">02</span><span class="tile-t">Appointment Qualification</span><span class="tile-d">Know exactly what makes a real opportunity.</span></button><button class="tile" data-go="booking"><span class="tile-num">03</span><span class="tile-t">Book &amp; Confirm</span><span class="tile-d">Calendar, expectations, and reminders.</span></button><button class="tile" data-go="closing"><span class="tile-num">04</span><span class="tile-t">Demo &amp; Closing</span><span class="tile-d">Separate scripts for the scheduled call.</span></button><button class="tile" data-go="pricing"><span class="tile-num">05</span><span class="tile-t">Pricing &amp; Payment</span><span class="tile-d">Standard offers and checkout links.</span></button><button class="tile" data-go="activity"><span class="tile-num">06</span><span class="tile-t">Daily Activity Form</span><span class="tile-d">Submit before ending each workday.</span></button></div>
+</section>
+
+    <!-- ================= START ================= -->
+    <section class="page" id="page-start">
+      <div class="eyebrow">Sales Guide</div>
+      <h1>Start Here</h1>
+      <p class="lead">Your job is to have good conversations with business owners, find out whether we can actually help, and set up demos worth everyone's time.</p>
+
+      <div class="grid g2">
+        <div class="card">
+          <span class="pill green">Quality first</span>
+          <h3>Make the meeting mean something</h3>
+          <p>We spend time preparing a custom receptionist around the prospect's business. Before you book, make sure they have a problem, know the price, and genuinely want to see how we'd solve it.</p>
+          <p style="margin-bottom:0"><strong>A real opportunity beats five calendar fillers.</strong></p>
+        </div>
+        <div class="card">
+          <span class="pill blue">Keep it natural</span>
+          <h3>Frameworks, not memorized lines</h3>
+          <p>Use the language in this hub when it helps. Change wording, skip questions you already have answers to, and follow what the prospect is actually saying.</p>
+          <p style="margin-bottom:0">A natural conversation with clear direction beats a perfect script.</p>
+        </div>
+      </div>
+
+      <h2>What matters on each call</h2>
+      <div class="priority-stack">
+        <div><span>1</span><strong>Understand the problem</strong><p>Find out how calls are handled, what gets missed, and whether it's costing the business anything.</p></div>
+        <div><span>2</span><strong>Qualify the opportunity</strong><p>Confirm who decides, discuss $397/month, and check whether they'd seriously consider using it if the custom demo works.</p></div>
+        <div><span>3</span><strong>Book, confirm, and follow through</strong><p>Schedule the demo while you're on the phone, leave useful notes, and make sure they know how to reach us if plans change.</p></div>
+      </div>
+
+      <div class="note warn">
+        <p style="margin-bottom:0"><strong>Do not force a bad fit.</strong> Some businesses genuinely do not have enough call volume, margin, or need for the product. Find out. If the economics do not make sense, move on professionally. Never promise that a prospect will buy just because they agreed to meet.</p>
+      </div>
+      <div class="btnrow"><button class="btn" data-go="process">Next: Sales Process</button></div>
+    </section>
+
+    <!-- ================= PROCESS ================= -->
+    <section class="page" id="page-process">
+      <div class="eyebrow">Sales Guide</div>
+      <h1>Sales Process</h1>
+      <p class="lead">A normal sales process, with a real custom demo between the first conversation and the decision. Don't rush an owner into buying something they haven't seen.</p>
+
+      <div class="process-strip">
+        <div><span>01</span><strong>Connect</strong><small>Reach the owner</small></div>
+        <div><span>02</span><strong>Qualify</strong><small>Problem, buyer, price</small></div>
+        <div><span>03</span><strong>Book</strong><small>Custom demo time</small></div>
+        <div><span>04</span><strong>Demo</strong><small>Show their solution</small></div>
+        <div><span>05</span><strong>Decide</strong><small>Questions and close</small></div>
+        <div><span>06</span><strong>Launch</strong><small>Onboard and go live</small></div>
+      </div>
+
+      <h2>From cold call to launch</h2>
+      <div class="card">
+        <div class="pipe">
+          <div class="pstage sdr"><div class="rail"><div class="pdot">1</div><div class="pline"></div></div><div class="pbody"><div class="pt">Cold conversation</div><div class="pd">Reach the decision maker and earn enough attention to understand how calls are handled today.</div></div></div>
+          <div class="pstage sdr"><div class="rail"><div class="pdot">2</div><div class="pline"></div></div><div class="pbody"><div class="pt">Discovery and qualification</div><div class="pd">Missed calls, current process, customer value, decision maker, timing, and whether $397/month is realistic.</div></div></div>
+          <div class="pstage sdr"><div class="rail"><div class="pdot">3</div><div class="pline"></div></div><div class="pbody"><div class="pt">Book the custom demo</div><div class="pd">Agree on a specific time, explain what we will prepare, confirm contact details, and record useful notes.</div></div></div>
+          <div class="pstage team"><div class="rail"><div class="pdot">4</div><div class="pline"></div></div><div class="pbody"><div class="pt">Prepare and confirm</div><div class="pd">We build the custom example. Confirm the prospect about an hour before their appointment and handle rescheduling early.</div></div></div>
+          <div class="pstage team"><div class="rail"><div class="pdot">5</div><div class="pline"></div></div><div class="pbody"><div class="pt">Demo and questions</div><div class="pd">Show the receptionist tailored to their business, let them test it, and connect it to the problem they described.</div></div></div>
+          <div class="pstage team"><div class="rail"><div class="pdot">6</div><div class="pline"></div></div><div class="pbody"><div class="pt">Close or agree on a follow-up</div><div class="pd">Ask for the business. Address real concerns and send the payment link if they are ready. Otherwise, set a specific next step.</div></div></div>
+          <div class="pstage close"><div class="rail"><div class="pdot">7</div><div class="pline"></div></div><div class="pbody"><div class="pt">Onboarding form and build</div><div class="pd">After payment and the form, the team normally prepares the first production version within about 24 hours for the client to test.</div></div></div>
+          <div class="pstage close"><div class="rail"><div class="pdot">8</div></div><div class="pbody"><div class="pt">Approve and go live</div><div class="pd">Once approved, we provide the phone number used for call forwarding and the receptionist starts handling real calls.</div></div></div>
+        </div>
+      </div>
+
+      <div class="deal-principle compact">
+        <span class="deal-kicker">THE STANDARD</span>
+        <div><strong>Book because they're qualified, not just because they're polite.</strong><p>They know who we are, what we'll show them, what it costs, and why the demo is worth their time. A calendar slot alone is not a sale.</p></div>
+      </div>
+      <div class="btnrow"><button class="btn" data-go="product">Next: Product &amp; Scope</button></div>
+    </section>
+
+    <!-- ================= PRODUCT ================= -->
+    <section class="page" id="page-product">
+      <div class="eyebrow">Sales Guide</div>
+      <h1>Product &amp; Scope</h1>
+      <p class="lead">Sell the outcome first. Know the scope well enough to answer normal questions confidently without promising custom technical work you have not verified.</p>
+
+      <div class="hl">
+        <div class="k">Core offer</div>
+        <div class="v">A customized AI receptionist for $397/month with unlimited call volume.</div>
+        <p>It can answer 24/7, handle multiple calls at the same time, talk naturally with customers, capture leads, answer common questions, route calls, and support appointment workflows.</p>
+      </div>
+
+      <div class="grid g3">
+        <div class="card">
+          <h3 style="margin-top:0">Answer &amp; capture</h3>
+          <ul style="margin-bottom:0">
+            <li>24/7 answering</li>
+            <li>Unlimited call volume</li>
+            <li>Multiple simultaneous calls</li>
+            <li>Customer questions and conversations</li>
+            <li>Lead and message capture</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="margin-top:0">Route &amp; notify</h3>
+          <ul style="margin-bottom:0">
+            <li>Call routing and transfers</li>
+            <li>Urgent-call handling rules</li>
+            <li>Call summaries</li>
+            <li>Lead notifications</li>
+            <li>Business-specific call logic</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="margin-top:0">Book &amp; follow up</h3>
+          <ul style="margin-bottom:0">
+            <li>Appointment scheduling</li>
+            <li>Preferred-time capture</li>
+            <li>Calendar workflows</li>
+            <li>Lead qualification</li>
+            <li>Custom conversation flows</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2>Calendar options</h2>
+      <div class="card integration-card">
+        <div class="integration-row">
+          <span>Google Calendar</span><span>Outlook Calendar</span><span>Apple Calendar</span><span>HubSpot</span><span>Custom Calendar</span>
+        </div>
+        <p style="margin:18px 0 0">These are the preferred scheduling options. Other calendar or scheduling systems can usually be connected as well, but depending on the setup there may be an additional cost. Confirm nonstandard integrations before promising the final scope.</p>
+      </div>
+
+      <h2>Not every client needs direct booking</h2>
+      <div class="grid g2">
+        <div class="card">
+          <span class="pill green">Direct booking</span>
+          <h3>The AI schedules the appointment</h3>
+          <p style="margin-bottom:0">Best when the business has a clean calendar and wants callers placed directly into available time slots.</p>
+        </div>
+        <div class="card">
+          <span class="pill blue">Capture &amp; callback</span>
+          <h3>The AI captures the opportunity</h3>
+          <p style="margin-bottom:0">The AI understands what the caller needs, gathers contact details and preferred time frames, then sends the information to the team so a human can follow up. The customer is still captured and expects a callback.</p>
+        </div>
+      </div>
+
+      <h2>How calls normally reach the AI</h2>
+      <div class="note good">
+        <p style="margin-bottom:0">The business can keep its existing number. Calls can ring the team first and forward to the AI when nobody answers, or the business can choose another routing setup. At launch, we provide the phone number they use for call forwarding.</p>
+      </div>
+
+      <div class="note warn"><p style="margin-bottom:0"><strong>Scope rule:</strong> If you are unsure whether a custom integration or workflow is included, do not guess. Tell the prospect you will confirm the setup before promising it.</p></div>
+      <div class="btnrow"><button class="btn" data-go="pricing">Next: Pricing &amp; Offer</button></div>
+    </section>
+
+    <!-- ================= PRICING ================= -->
+    <section class="page" id="page-pricing">
+      <div class="eyebrow">Sales Guide</div>
+      <h1>Pricing &amp; Offer</h1>
+      <p class="lead">Present the price clearly. Do not apologize for it. The value conversation comes from the prospect's economics, not from pretending the price is small.</p>
+
+      <div class="grid g3 pricing-grid">
+        <div class="plan">
+          <span class="pill blue">Website</span>
+          <div class="price" style="margin-top:10px">$297<span> / month</span></div>
+          <p style="color:var(--muted);margin-top:6px">A custom website built and maintained for the business.</p>
+          <ul class="featlist">
+            <li>Custom design and build</li><li>Hosting and maintenance</li><li>Ongoing minor updates</li><li>No setup fee; month to month</li>
+          </ul>
+          <a class="btn payment-btn" href="https://link.fastpaydirect.com/payment-link/6aba461dc0e70c7fefb70ecb" target="_blank" rel="noopener noreferrer">Website payment link &#8599;</a>
+        </div>
+        <div class="plan feature">
+          <span class="pill purple">Bundle</span>
+          <div class="price" style="margin-top:10px">$497<span> / month</span></div>
+          <p style="margin-top:6px">Website plus AI receptionist in one package.</p>
+          <ul class="featlist">
+            <li>Everything in Website</li><li>Everything in AI Receptionist</li><li>One monthly package</li><li>No setup fee; month to month</li>
+          </ul>
+          <a class="btn payment-btn" href="https://link.fastpaydirect.com/payment-link/6aba46fbc0e70c7fefb70ed2" target="_blank" rel="noopener noreferrer">Bundle payment link &#8599;</a>
+        </div>
+        <div class="plan">
+          <span class="pill green">AI Receptionist</span>
+          <div class="price" style="margin-top:10px">$397<span> / month</span></div>
+          <p style="color:var(--muted);margin-top:6px">Customized AI call handling with unlimited call volume.</p>
+          <ul class="featlist">
+            <li>24/7 answering</li><li>Unlimited calls and simultaneous handling</li><li>Lead capture, routing, and scheduling workflows</li><li>Standard setup and customization</li><li>No setup fee; month to month</li>
+          </ul>
+          <a class="btn payment-btn" href="https://link.fastpaydirect.com/payment-link/6aba44eec0e70c7fefb70eca" target="_blank" rel="noopener noreferrer">AI receptionist payment link &#8599;</a>
+        </div>
+      </div>
+
+      <h2>Price framing that is useful</h2>
+      <div class="value-grid">
+        <div class="value-card"><span>Per day</span><strong>~$13</strong><p>$397 spread across a 30-day month.</p></div>
+        <div class="value-card"><span>24/7 availability</span><strong>~$0.55/hr</strong><p>Across every hour of a 30-day month.</p></div>
+        <div class="value-card"><span>Call volume</span><strong>Unlimited</strong><p>A busy month does not create a per-minute bill.</p></div>
+      </div>
+      <p class="fineprint">Use these as perspective when helpful, not as the entire value proposition. The strongest value comes from what missed opportunities are worth to that specific business.</p>
+
+      <h2>Discount rule</h2>
+      <div class="discount-flow">
+        <div><span>1</span><strong>Diagnose first</strong><p>Make sure price is truly the blocker and the product itself is a fit.</p></div>
+        <div><span>2</span><strong>Get an exact number</strong><p>"What monthly price would make this work for you?" Get a specific dollar amount, not just "something cheaper."</p></div>
+        <div><span>3</span><strong>Confirm the commitment</strong><p><strong>"If I can get $[exact amount] approved, are you ready to move forward today?"</strong> Wait for a clear yes before asking for an exception.</p></div>
+        <div><span>4</span><strong>Contact management</strong><p>Share their exact number and commitment. We may approve it, counteroffer, or keep the standard price. Do not promise a discount before approval.</p></div>
+      </div>
+      <div class="note stop"><p style="margin-bottom:0"><strong>Never negotiate against yourself.</strong> Do not request a discount for someone who is only vaguely interested. Get the exact amount and a clear commitment to buy today if approved.</p></div>
+      <div class="btnrow"><button class="btn" data-go="scripts">Next: Cold Call</button></div>
+    </section>
+
+    <!-- ================= COLD CALL ================= -->
+    <section class="page" id="page-scripts">
+      <div class="eyebrow">First conversation</div>
+      <h1>Cold Call Scripts</h1>
+      <p class="lead">Three ways to start. Ask a couple of quick missed-call questions, explain the receptionist, and offer a short custom demo early. Then check fit, price, and who makes the decision before booking. Keep it natural.</p>
+      <div class="tabs" id="scripttabs">
+        <button class="tab active" data-tab="s1">Direct</button>
+        <button class="tab" data-tab="s2">Permission Based</button>
+        <button class="tab" data-tab="s3">AI Audit</button>
+      </div>
+<div class="tabpane active" id="tab-s1"><h2 style="margin-top:0">Direct Cold Call</h2><div class="note"><p><strong>The goal:</strong> A good conversation and a properly qualified custom demo. Speak naturally, and do not rush someone onto the calendar.</p></div><div class="step"><div class="snum">1</div><div class="sbody"><div class="sh">Reach the decision maker</div><div class="say">"Hey, is this [Business Name]?"</div><div class="say">"This is [Your Name] with Summit Results Agency. Are you the owner?"</div></div></div><div class="step"><div class="snum">2</div><div class="sbody"><div class="sh">Open the conversation</div><div class="say">"The reason I'm calling is we're helping [Industry] businesses make sure customer calls don't get lost when everyone's busy or the office is closed. When someone calls during a job or in the evening, does it ever go unanswered or to voicemail?"</div><div class="cue">Lead with the problem, not the AI. Let them explain what happens.</div></div></div><div class="step"><div class="snum">3</div><div class="sbody"><div class="sh">Ask one or two quick questions</div><div class="say">"Roughly how many calls do you think you miss on a normal day or week?"</div><div class="say">"When that happens, do people usually leave a message, or is it kind of hit or miss?"</div><div class="cue">Keep this brief. One or two questions are enough before showing them what we're offering.</div></div></div><div class="step"><div class="snum">4</div><div class="sbody"><div class="sh">Explain what we do</div><div class="say">"Got it. That's actually why I'm calling. We build AI receptionists that answer when you can't, talk to customers, answer questions, and collect their information. They can also help with appointments or pass the details along so you can follow up."</div><div class="say">"So instead of a customer hitting voicemail and possibly calling someone else, there's someone there to take the call."</div><div class="cue">Keep it short and tie it to what they just told you.</div></div></div><div class="step"><div class="snum">5</div><div class="sbody"><div class="sh">Offer the custom demo early</div><div class="say">"What I can do is put together a quick demo for [Business Name] so you can hear exactly what your customers would hear when they call. We can go over it together in about 5 to 10 minutes. Would you be open to seeing that?"</div><div class="cue">This is the main offer. Give them something useful before diving into more questions.</div></div></div><div class="step"><div class="snum">6</div><div class="sbody"><div class="sh">Qualify the appointment</div><div class="say">"Great. Just so we build something useful, what are the main calls you'd want it to handle? New customers, booking appointments, questions, or something else?"</div><div class="say">"And would you be the person deciding on something like this, or should we include someone else?"</div><div class="say">"Just so you know, it's $397 a month for the AI receptionist, including the custom setup and unlimited calls. If the demo works the way you want, would that be something you'd realistically consider?"</div><div class="cue">Get a real answer on price, the decision maker, and why they'd use it. Don't book someone who isn't open to the offer.</div></div></div><div class="step"><div class="snum">7</div><div class="sbody"><div class="sh">Check the value if helpful</div><div class="say">"Out of curiosity, what's an average new customer or job worth for you?"</div><div class="cue">Only go deeper on ROI if it helps. Don't drag out a good call or promise results.</div><button class="btn ghost open-script-roi" type="button">Open Call Value Calculator</button></div></div><div class="step"><div class="snum">8</div><div class="sbody"><div class="sh">Book the demo and confirm details</div><div class="say">"Perfect. We usually do these over Google Meet so we can walk you through the demo on video, but a phone call works too. Which would you prefer?"</div><div class="say">"Would [day/time] or [other day/time] be better?"</div><div class="say">"We'll put together the demo for your business before we meet. And if something comes up, no problem, just let me know ahead of time so we can move it. Sound good?"</div><div class="cue">Normally book it on your own calendar and run it yourself. Confirm the date, time zone, Google Meet link or phone number, decision maker, and email. Use the Summit Results team calendar only when a team member is taking the demo.</div><button class="btn" data-go="booking">Open Booking Instructions</button></div></div></div><div class="tabpane" id="tab-s2"><h2 style="margin-top:0">Permission-Based Cold Call</h2><div class="note"><p><strong>The goal:</strong> A good conversation and a properly qualified custom demo. Speak naturally, and do not rush someone onto the calendar.</p></div><div class="step"><div class="snum">1</div><div class="sbody"><div class="sh">Reach the decision maker</div><div class="say">"Hey, is this [Business Name]?"</div><div class="say">"This is [Your Name] with Summit Results Agency. Are you the owner?"</div></div></div><div class="step"><div class="snum">2</div><div class="sbody"><div class="sh">Open the conversation</div><div class="say">"I'll be honest, this is a cold call. We're helping [Industry] businesses catch customer calls they might miss when they're busy or closed. Do you have 30 seconds?"</div><div class="cue">Pause for their answer. If they say yes, keep it short and conversational.</div><div class="say">"Perfect, appreciate it. We help make sure calls don't just go to voicemail when you're on a job or it's after hours. Do you guys ever run into that, where you can't get to the phone?"</div></div></div><div class="step"><div class="snum">3</div><div class="sbody"><div class="sh">Ask one or two quick questions</div><div class="say">"Roughly how many calls do you think you miss on a normal day or week?"</div><div class="say">"When that happens, do people usually leave a message, or is it kind of hit or miss?"</div><div class="cue">Keep this brief. One or two questions are enough before showing them what we're offering.</div></div></div><div class="step"><div class="snum">4</div><div class="sbody"><div class="sh">Explain what we do</div><div class="say">"Got it. That's actually why I'm calling. We build AI receptionists that answer when you can't, talk to customers, answer questions, and collect their information. They can also help with appointments or pass the details along so you can follow up."</div><div class="say">"So instead of a customer hitting voicemail and possibly calling someone else, there's someone there to take the call."</div><div class="cue">Keep it short and tie it to what they just told you.</div></div></div><div class="step"><div class="snum">5</div><div class="sbody"><div class="sh">Offer the custom demo early</div><div class="say">"What I can do is put together a quick demo for [Business Name] so you can hear exactly what your customers would hear when they call. We can go over it together in about 5 to 10 minutes. Would you be open to seeing that?"</div><div class="cue">This is the main offer. Give them something useful before diving into more questions.</div></div></div><div class="step"><div class="snum">6</div><div class="sbody"><div class="sh">Qualify the appointment</div><div class="say">"Great. Just so we build something useful, what are the main calls you'd want it to handle? New customers, booking appointments, questions, or something else?"</div><div class="say">"And would you be the person deciding on something like this, or should we include someone else?"</div><div class="say">"Just so you know, it's $397 a month for the AI receptionist, including the custom setup and unlimited calls. If the demo works the way you want, would that be something you'd realistically consider?"</div><div class="cue">Get a real answer on price, the decision maker, and why they'd use it. Don't book someone who isn't open to the offer.</div></div></div><div class="step"><div class="snum">7</div><div class="sbody"><div class="sh">Check the value if helpful</div><div class="say">"Out of curiosity, what's an average new customer or job worth for you?"</div><div class="cue">Only go deeper on ROI if it helps. Don't drag out a good call or promise results.</div><button class="btn ghost open-script-roi" type="button">Open Call Value Calculator</button></div></div><div class="step"><div class="snum">8</div><div class="sbody"><div class="sh">Book the demo and confirm details</div><div class="say">"Perfect. We usually do these over Google Meet so we can walk you through the demo on video, but a phone call works too. Which would you prefer?"</div><div class="say">"Would [day/time] or [other day/time] be better?"</div><div class="say">"We'll put together the demo for your business before we meet. And if something comes up, no problem, just let me know ahead of time so we can move it. Sound good?"</div><div class="cue">Normally book it on your own calendar and run it yourself. Confirm the date, time zone, Google Meet link or phone number, decision maker, and email. Use the Summit Results team calendar only when a team member is taking the demo.</div><button class="btn" data-go="booking">Open Booking Instructions</button></div></div></div><div class="tabpane" id="tab-s3"><h2 style="margin-top:0">Missed-Call Audit Cold Call</h2><div class="note"><p><strong>The goal:</strong> A good conversation and a properly qualified custom demo. Speak naturally, and do not rush someone onto the calendar.</p></div><div class="step"><div class="snum">1</div><div class="sbody"><div class="sh">Reach the decision maker</div><div class="say">"Hey, is this [Business Name]?"</div><div class="say">"This is [Your Name] with Summit Results Agency. Are you the owner?"</div></div></div><div class="step"><div class="snum">2</div><div class="sbody"><div class="sh">Open the conversation</div><div class="say">"I'm reaching out because we're helping [Industry] businesses spot revenue that can slip through when calls come in during busy hours, evenings, and weekends. Could I ask you one quick question to see whether that's relevant?"</div><div class="cue">Wait for agreement, then explain the situation before asking.</div><div class="say">"When someone calls after hours or while everyone is tied up, the caller often moves on instead of leaving a message. We're looking at whether that's happening for local businesses. What usually happens to those calls at your company?"</div></div></div><div class="step"><div class="snum">3</div><div class="sbody"><div class="sh">Ask one or two quick questions</div><div class="say">"Roughly how many calls do you think you miss on a normal day or week?"</div><div class="say">"When that happens, do people usually leave a message, or is it kind of hit or miss?"</div><div class="cue">Keep this brief. One or two questions are enough before showing them what we're offering.</div></div></div><div class="step"><div class="snum">4</div><div class="sbody"><div class="sh">Explain what we do</div><div class="say">"Got it. That's actually why I'm calling. We build AI receptionists that answer when you can't, talk to customers, answer questions, and collect their information. They can also help with appointments or pass the details along so you can follow up."</div><div class="say">"So instead of a customer hitting voicemail and possibly calling someone else, there's someone there to take the call."</div><div class="cue">Keep it short and tie it to what they just told you.</div></div></div><div class="step"><div class="snum">5</div><div class="sbody"><div class="sh">Offer the custom demo early</div><div class="say">"What I can do is put together a quick demo for [Business Name] so you can hear exactly what your customers would hear when they call. We can go over it together in about 5 to 10 minutes. Would you be open to seeing that?"</div><div class="cue">This is the main offer. Give them something useful before diving into more questions.</div></div></div><div class="step"><div class="snum">6</div><div class="sbody"><div class="sh">Qualify the appointment</div><div class="say">"Great. Just so we build something useful, what are the main calls you'd want it to handle? New customers, booking appointments, questions, or something else?"</div><div class="say">"And would you be the person deciding on something like this, or should we include someone else?"</div><div class="say">"Just so you know, it's $397 a month for the AI receptionist, including the custom setup and unlimited calls. If the demo works the way you want, would that be something you'd realistically consider?"</div><div class="cue">Get a real answer on price, the decision maker, and why they'd use it. Don't book someone who isn't open to the offer.</div></div></div><div class="step"><div class="snum">7</div><div class="sbody"><div class="sh">Check the value if helpful</div><div class="say">"Out of curiosity, what's an average new customer or job worth for you?"</div><div class="cue">Only go deeper on ROI if it helps. Don't drag out a good call or promise results.</div><button class="btn ghost open-script-roi" type="button">Open Call Value Calculator</button></div></div><div class="step"><div class="snum">8</div><div class="sbody"><div class="sh">Book the demo and confirm details</div><div class="say">"Perfect. We usually do these over Google Meet so we can walk you through the demo on video, but a phone call works too. Which would you prefer?"</div><div class="say">"Would [day/time] or [other day/time] be better?"</div><div class="say">"We'll put together the demo for your business before we meet. And if something comes up, no problem, just let me know ahead of time so we can move it. Sound good?"</div><div class="cue">Normally book it on your own calendar and run it yourself. Confirm the date, time zone, Google Meet link or phone number, decision maker, and email. Use the Summit Results team calendar only when a team member is taking the demo.</div><button class="btn" data-go="booking">Open Booking Instructions</button></div></div></div>
+
+      <div class="btnrow"><button class="btn" data-go="qualification">Check Appointment Qualification</button></div>
+    </section>
+    <!-- ================= QUALIFICATION ================= -->
+    <section class="page" id="page-qualification">
+      <div class="eyebrow">Before the calendar</div>
+      <h1>Appointment Qualification</h1>
+      <p class="lead">A booked demo is only valuable if the right person shows up, understands the offer, and has a real reason to consider it. We're building something custom for them, so take this seriously.</p>
+      <div class="note good"><p style="margin-bottom:0"><strong>The simple test:</strong> If the demo works the way they need and they like what they hear, is there a real possibility they would become a client? They don't have to promise to buy. But they should be genuinely open to it.</p></div>
+      <h2>The qualification checklist</h2>
+      <div class="card">
+        <div class="checkline"><span class="checkbox"></span><span><strong>Decision maker:</strong> You're speaking with the owner or someone who can make the decision. If someone else must approve, they're invited to the demo.</span></div>
+        <div class="checkline"><span class="checkbox"></span><span><strong>Actual problem:</strong> Calls go unanswered, the team is busy, after-hours calls are missed, or their current call handling needs work. You understand what happens today.</span></div>
+        <div class="checkline"><span class="checkbox"></span><span><strong>Business value:</strong> You have an idea of call volume, typical customer value, and why fixing it might matter. Don't promise specific results.</span></div>
+        <div class="checkline"><span class="checkbox"></span><span><strong>Clear product:</strong> They know we're talking about an AI receptionist that answers calls, helps callers, captures information, and can support scheduling or routing.</span></div>
+        <div class="checkline"><span class="checkbox"></span><span><strong>Price discussed:</strong> You've clearly told them it's $397 per month for the standard AI receptionist, and they've said they could realistically consider that if it works for them.</span></div>
+        <div class="checkline"><span class="checkbox"></span><span><strong>Custom demo understood:</strong> They know we'll prepare a version for their own business and walk through it with them. It's not just a generic sales pitch.</span></div>
+        <div class="checkline"><span class="checkbox"></span><span><strong>Genuine interest:</strong> They want to solve the problem and would consider moving forward if the demo does what they need.</span></div>
+        <div class="checkline"><span class="checkbox"></span><span><strong>Timing:</strong> You know whether they're considering making a change soon or just gathering information for later.</span></div>
+        <div class="checkline"><span class="checkbox"></span><span><strong>Real meeting:</strong> They chose a specific date and time, understand how they'll join, and their phone number and email are correct.</span></div>
+        <div class="checkline"><span class="checkbox"></span><span><strong>Rescheduling commitment:</strong> You've asked them to let us know if anything changes, and they agreed.</span></div>
+        <div class="checkline"><span class="checkbox"></span><span><strong>Useful handoff:</strong> The CRM and booking notes include their problem, current setup, decision maker, price response, business details, questions, and anything the custom demo should show.</span></div>
+      </div>
+
+      <h2>Four natural questions to get there</h2>
+      <div class="grid g2">
+        <div class="card"><span class="pill blue">Problem</span><h3>Find the actual gap</h3><div class="say">"When you guys can't get to the phone, what normally happens to those calls?"</div><p style="margin-bottom:0">Ask how often it happens and whether callers leave messages or move on.</p></div>
+        <div class="card"><span class="pill blue">Decision</span><h3>Get the right person on the demo</h3><div class="say">"Would you be the person deciding on something like this, or should anyone else join us?"</div></div>
+        <div class="card"><span class="pill blue">Price</span><h3>Don't surprise them later</h3><div class="say">"The receptionist is $397 a month, including the custom setup and unlimited calls. If it does what you need, is that something you'd consider?"</div></div>
+        <div class="card"><span class="pill blue">Intent</span><h3>Make sure the meeting matters</h3><div class="say">"If we build a version around your business and you like how it handles the calls, would you actually be looking to put something like this in place?"</div></div>
+      </div>
+
+      <h2>What should stop you from booking?</h2>
+      <div class="grid g2">
+        <div class="card"><span class="pill green">Book the custom demo</span><p style="margin-bottom:0">The right person is involved, there's a plausible problem, they know the price, and they are genuinely willing to look at a solution. They agree to a real time and know a custom demo will be prepared.</p></div>
+        <div class="card"><span class="pill red">Don't force the booking</span><p style="margin-bottom:0">They can't consider the price, won't involve the buyer, have no relevant need, or only agree to a meeting to end the conversation. Clarify the concern, offer the public live demo if useful, and leave a sensible follow-up instead of wasting everyone's time.</p></div>
+      </div>
+      <div class="note warn"><p style="margin-bottom:0"><strong>Never qualify someone by pressure.</strong> An honest "not right now" is better than a no-show. If they aren't ready, record why and when it makes sense to follow up.</p></div>
+      <h2>Notes the demo team should actually receive</h2>
+      <div class="card">
+        <div class="checkline"><span class="checkbox"></span><span>Business name, website, industry, contact details, and who is attending</span></div>
+        <div class="checkline"><span class="checkbox"></span><span>How calls are handled now, missed-call estimate, average customer value if known</span></div>
+        <div class="checkline"><span class="checkbox"></span><span>Exact problem or frustration in the owner's own words</span></div>
+        <div class="checkline"><span class="checkbox"></span><span>Price discussed, what they said about $397, and buying timeline</span></div>
+        <div class="checkline"><span class="checkbox"></span><span>What they want to hear in the demo: booking, intake, FAQ, transfer, hours, language, or something else</span></div>
+        <div class="checkline"><span class="checkbox"></span><span>Any objection, special integration, or promise requiring approval</span></div>
+      </div>
+      <div class="btnrow"><button class="btn" data-go="booking">Next: Book &amp; Confirm</button><button class="btn ghost" data-go="scripts">Back to Cold Calls</button></div>
+    </section>
+
+    <!-- ================= BOOKING ================= -->
+    <section class="page" id="page-booking">
+      <div class="eyebrow">Make it real</div>
+      <h1>Book &amp; Confirm</h1>
+      <p class="lead">Most of the time, you book the custom demo on your own calendar and run the meeting yourself. Agree on the format and time while you're still speaking with the prospect.</p>
+      <div class="note good"><strong>Default: book for yourself.</strong> Ask whether they prefer Google Meet or a phone call. Use your own availability and meeting link, then send the invite and run the demo at the agreed time.</div>
+      <div class="card"><h3 style="margin-top:0">Only if someone from our team is running the demo</h3><p>If you're handing the appointment to a Summit Results team member, use the team calendar below instead of your own.</p><a class="btn ghost" href="https://cal.com/summit-results/ai-receptionist-website" target="_blank" rel="noopener noreferrer">Open Team Demo Calendar &#8599;</a></div>
+      <h2>Booking conversation</h2>
+      <div class="step"><div class="snum">1</div><div class="sbody"><div class="sh">Ask how they'd like to meet</div><div class="say">"We usually do these over Google Meet so I can show you everything on video, but we can do a phone call too. What works better for you?"</div><div class="cue">Either works. If it's a phone call, make sure they can still hear or test the demo.</div></div></div>
+      <div class="step"><div class="snum">2</div><div class="sbody"><div class="sh">Offer a time on your calendar</div><div class="say">"Perfect. How does [day/time] look, or would [other day/time] be better?"</div><div class="say">"I'll put together a demo around your business before we talk, so you can hear how it handles your calls. If it does what you need, we can go over next steps then."</div><div class="cue">Choose the actual slot together. Confirm the time zone and your Google Meet link or the best phone number.</div></div></div>
+      <div class="step"><div class="snum">3</div><div class="sbody"><div class="sh">Set a clear expectation</div><div class="say">"If anything comes up and you need to reschedule, that's completely fine. Just let us know. We want to respect your time and our time, so just don't leave us in the dark if something changes. Sound good?"</div></div></div>
+      <div class="step"><div class="snum">4</div><div class="sbody"><div class="sh">Repeat the details</div><div class="say">"Perfect, I've got you for [day] at [time and time zone]. You should get the invite at [email]. Is [phone] the best number if we need to reach you?"</div><div class="cue">Check that the appointment is on your calendar (or the team calendar if you handed it off). Send the Google Meet invite or confirm the phone number. Verify decision maker and contact details.</div></div></div>
+      <h2>Before hanging up</h2>
+      <div class="card">
+        <div class="checkline"><span class="checkbox"></span><span>Business and contact name, number, and email are correct</span></div>
+        <div class="checkline"><span class="checkbox"></span><span>Date, time zone, and Google Meet or phone preference are clear; the invite or call details have been sent</span></div>
+        <div class="checkline"><span class="checkbox"></span><span>The actual decision maker will be there</span></div>
+        <div class="checkline"><span class="checkbox"></span><span>They heard the $397/month price and could consider it</span></div>
+        <div class="checkline"><span class="checkbox"></span><span>They understand we're preparing a custom receptionist for them</span></div>
+        <div class="checkline"><span class="checkbox"></span><span>They know to call or message if plans change</span></div>
+        <div class="checkline"><span class="checkbox"></span><span>The event is on your calendar, or the team calendar if a team member will run it, and the CRM has useful qualification notes</span></div>
+      </div>
+      <h2>Confirm the appointment</h2>
+      <div class="hl"><div class="k">Your responsibility</div><div class="v">Confirm the demo about one hour before it starts.</div><p>Remind them the custom demo is ready. If they need to move it, reschedule before the appointment rather than letting it turn into a no-show.</p></div>
+      <div class="grid g2">
+        <div class="card"><h3 style="margin-top:0">Confirmation call</h3><div class="say">"Hey [Name], it's [Your Name] with Summit Results. Just confirming we're still good for [time] today. We've got your demo ready, so I wanted to make sure that still works for you."</div></div>
+        <div class="card"><h3 style="margin-top:0">Confirmation text</h3><div class="say">"Hey [Name], it's [Your Name] with Summit Results. Just confirming we're still on for [time] today. We've got your custom demo ready. Let me know if anything changed."</div></div>
+      </div>
+      <div class="note warn"><p style="margin-bottom:0"><strong>No response isn't a confirmation.</strong> Try the appropriate channel, update the CRM, and flag a likely no-show early so the team knows what's happening. Don't claim they confirmed if they didn't.</p></div>
+      <div class="btnrow"><button class="btn" data-go="closing">Next: Demo &amp; Closing</button></div>
+    </section>
+    <!-- ================= OBJECTIONS ================= -->
+    <section class="page" id="page-objections">
+      <div class="eyebrow">Sales Guide</div>
+      <h1>Objection Handling</h1>
+      <p class="lead">Do not memorize clever rebuttals. Find out what the objection actually means, respond to that, and move the conversation forward. On the first call, that's usually a qualified demo. After the demo, it's a decision.</p>
+
+      <div class="objection-framework">
+        <div><span>1</span><strong>Diagnose</strong><p>"What makes you say that?"</p></div>
+        <div><span>2</span><strong>Understand</strong><p>Listen for the real concern.</p></div>
+        <div><span>3</span><strong>Reframe</strong><p>Use their situation and numbers.</p></div>
+        <div><span>4</span><strong>Confirm</strong><p>"Does that address it?"</p></div>
+        <div><span>5</span><strong>Next step</strong><p>Book the demo or ask for the sale.</p></div>
+      </div>
+
+      <h2>"Just send me some information."</h2>
+      <div class="objection-card featured">
+        <div class="say">"Of course, I can send you some information. It's usually easier to take 5 or 10 minutes and actually show you the demo, though. You'll get a much better idea of how it works that way."</div>
+        <p>Keep it simple. Offer the short demo, and if they still want information first, send it without arguing.</p>
+        <div class="say">"I can put together an example for your business and walk you through it. Would you be open to a quick 5- or 10-minute call?"</div>
+      </div>
+
+      <h2>"I don't have time for a demo."</h2>
+      <div class="objection-card">
+        <div class="say">"No problem. That's actually why I wanted to schedule something rather than take up your time now. Would early next week be easier, or is this just not a priority at the moment?"</div>
+        <p>If it's not a priority or they can't realistically consider the price, don't force a calendar slot.</p>
+      </div>
+
+      <h2>"Can I just try it first?"</h2>
+      <div class="objection-card">
+        <div class="say">"Absolutely. We have a live example you can call. And if it seems useful, we can build one around your business and walk you through that together."</div>
+        <a class="btn purple" href="https://summitresultsagency.com/ai-receptionist" target="_blank" rel="noopener noreferrer">Open Live Demo &#8599;</a>
+      </div>
+
+      <h2>"$397 is too expensive."</h2>
+      <div class="objection-card featured">
+        <div class="say">"Got it. What makes you say that?"</div>
+        <p>Do not defend the price until you know what they mean. Often the real answer is that they do not believe they miss enough calls, they do not see enough customer value, or they are comparing the number to a cheaper alternative.</p>
+        <div class="say">"That's fair. Let's see if it even makes sense. You said you're missing about [X] calls and an average customer is worth about $[Y]. If solving even part of that creates more than $397 in value, then it makes sense. If it doesn't, I wouldn't tell you to buy it either."</div>
+        <div class="say">"It's also about $13 a day for unlimited 24/7 call handling. The bigger question is whether the calls it helps capture are worth more than that."</div>
+      </div>
+
+      <h2>"We don't miss enough calls."</h2>
+      <div class="objection-card">
+        <div class="say">"That may be true. About how many would you say actually go unanswered in a day or week?"</div>
+        <p>Use the real number. If the economics are weak, do not manufacture urgency. If even a few missed calls are valuable, work through that together.</p>
+      </div>
+
+      <h2>"Another company is cheaper."</h2>
+      <div class="objection-card">
+        <div class="say">"Absolutely, there are cheaper options. What are they including at that price?"</div>
+        <p>Compare scope, not logos. Ask about call limits, per-minute charges, simultaneous calls, customization, scheduling, integrations, and what happens when volume increases.</p>
+        <div class="say">"If their setup does everything you need at that price, that may be a good option. I just want to make sure we're comparing the same thing."</div>
+      </div>
+
+      <h2>"I don't want AI answering my calls."</h2>
+      <div class="objection-card">
+        <div class="say">"I understand. It doesn't have to replace the way you answer calls now. Your team can still answer like normal. The AI can mainly step in when nobody is available, so the alternative is usually AI versus voicemail, not AI versus your staff."</div>
+      </div>
+
+      <h2>"I need to think about it."</h2>
+      <div class="objection-card">
+        <div class="say">"Of course. What specifically do you feel like you need to think through?"</div>
+        <p>Do not accept a vague stall without understanding it. If the concern is price, product, timing, partner approval, or trust, deal with the real issue. If they genuinely need time, schedule the next conversation with yourself.</p>
+      </div>
+
+      <h2>"I need to talk to my partner."</h2>
+      <div class="objection-card">
+        <div class="say">"Makes sense. Is there anything you think they'll want to know before making the decision?"</div>
+        <p>Answer what you can, then invite both decision makers to the custom demo. The person who must approve the purchase should hear the presentation.</p>
+      </div>
+
+      <h2>When price is the only blocker</h2>
+      <div class="note good">
+        <p>Handle the objection and establish value first. If price is genuinely the only issue, ask for the <strong>exact monthly amount</strong> they would accept.</p>
+        <p><strong>"If I can get $[exact amount] approved, will you move forward today?"</strong> Confirm a clear yes, then contact management with the exact amount and their commitment.</p><p style="margin-bottom:0">Management may approve, counter, or decline. Keep the conversation with the prospect and never promise unapproved pricing.</p>
+      </div>
+
+      <div class="note stop"><p style="margin-bottom:0"><strong>Know when to stop.</strong> Objection handling is for real opportunities with a solvable concern. It is not a contest to argue an uninterested person into submission.</p></div>
+      <div class="btnrow"><button class="btn" data-go="booking">Book a Qualified Demo</button><button class="btn ghost" data-go="closing">Open Closing Scripts</button></div>
+    </section>
+
+    <!-- ================= CLOSING ================= -->
+    <section class="page" id="page-closing">
+      <div class="eyebrow">The scheduled conversation</div>
+      <h1>Demo &amp; Closing Scripts</h1>
+      <p class="lead">The appointment is where the prospect hears the custom receptionist, asks questions, and decides whether it makes sense. These are natural conversation frameworks, not lines to read word for word.</p>
+      <div class="tabs" id="closingtabs">
+        <button class="tab active" data-tab="c1">Custom Demo</button>
+        <button class="tab" data-tab="c2">Follow-Up Close</button>
+        <button class="tab" data-tab="c3">Price Concern</button>
+      </div>
+      <div class="tabpane active" id="tab-c1">
+        <h2 style="margin-top:0">Custom demo to close</h2>
+        <div class="note"><p><strong>Before the call:</strong> Review the original notes and make sure the demo is ready. The prospect shouldn't have to repeat their entire first conversation.</p></div>
+        <div class="step"><div class="snum">1</div><div class="sbody"><div class="sh">Reconnect with their problem</div><div class="say">"Hey [Name], good to see you. When we spoke, you mentioned [specific missed-call problem]. Is that still the main thing you'd want to fix?"</div></div></div>
+        <div class="step"><div class="snum">2</div><div class="sbody"><div class="sh">Set a simple agenda</div><div class="say">"Perfect. I'll show you what we put together for [Business], let you try it yourself, and then we can go through any questions. If you like it, we'll talk about getting it set up. Sound good?"</div></div></div>
+        <div class="step"><div class="snum">3</div><div class="sbody"><div class="sh">Show the custom receptionist</div><div class="say">"Let's say a customer calls while you're busy. Here's what they'd hear."</div><div class="cue">Demonstrate the exact scenario they care about. Have them test it with realistic customer questions, then ask what they think.</div><div class="say">"How does that sound to you? Is there anything you'd want it to handle differently?"</div></div></div>
+        <div class="step"><div class="snum">4</div><div class="sbody"><div class="sh">Connect it to the business</div><div class="say">"You mentioned you're missing roughly [X] calls, and a typical customer is worth about [Y]. If this helped you pick up even a few more of those opportunities, do you think that'd be useful?"</div><div class="cue">Use the real numbers. Don't promise recovered revenue or guaranteed conversions.</div><button class="btn ghost open-script-roi" type="button">Open Call Value Calculator</button></div></div>
+        <div class="step"><div class="snum">5</div><div class="sbody"><div class="sh">Confirm price and fit</div><div class="say">"So the standard setup is $397 a month, month to month, with unlimited calls and no setup fee. Based on what you've seen, does that feel like a fit for the business?"</div></div></div>
+        <div class="step"><div class="snum">6</div><div class="sbody"><div class="sh">Ask for the sale</div><div class="say">"Based on everything we've gone through, do you want to get this set up?"</div><div class="cue">Stop talking and let them answer. If they have a real concern, use the objection framework.</div></div></div>
+        <div class="step"><div class="snum">7</div><div class="sbody"><div class="sh">If they say yes</div><div class="say">"Perfect. I'll send you the payment link. Once that's completed, we'll send over the onboarding form so we have everything we need to build the live version around your business."</div><button class="btn" data-go="pricing">Pricing &amp; Payment Links</button><button class="btn ghost" data-go="onboarding">Client Onboarding Steps</button></div></div>
+      </div>
+      <div class="tabpane" id="tab-c2">
+        <h2 style="margin-top:0">Closing after they needed time</h2>
+        <div class="step"><div class="snum">1</div><div class="sbody"><div class="sh">Pick up where you left off</div><div class="say">"Hey [Name], when we last talked you wanted to [specific next step]. Did you get a chance to go over it?"</div></div></div>
+        <div class="step"><div class="snum">2</div><div class="sbody"><div class="sh">Find what's unresolved</div><div class="say">"What are you thinking after seeing the demo? Is there anything you're still unsure about?"</div><div class="cue">Listen first. If a partner needs to approve, involve them instead of guessing.</div></div></div>
+        <div class="step"><div class="snum">3</div><div class="sbody"><div class="sh">Bring it back to their goal</div><div class="say">"The main thing you wanted to solve was [problem]. From what we showed you, does this look like it would handle that?"</div></div></div>
+        <div class="step"><div class="snum">4</div><div class="sbody"><div class="sh">Ask directly</div><div class="say">"If you're comfortable with how it works and the $397 monthly price, are you ready to get it started?"</div><div class="cue">If yes, send the payment link and onboarding form. If not, agree on a real next step with a specific date rather than an open-ended 'I'll check back.'</div></div></div>
+      </div>
+      <div class="tabpane" id="tab-c3">
+        <h2 style="margin-top:0">When price is the remaining concern</h2>
+        <div class="step"><div class="snum">1</div><div class="sbody"><div class="sh">Understand it</div><div class="say">"Got it. Is the concern mainly the monthly price, or is there something about the setup you're still not sold on?"</div></div></div>
+        <div class="step"><div class="snum">2</div><div class="sbody"><div class="sh">Check the actual value</div><div class="say">"That's fair. You mentioned [missed calls] and that an average job is around [value]. If this helped you pick up a few more of those, would it cover the cost?"</div><div class="cue">Use their numbers, not inflated assumptions. If the economics don't work, don't push.</div></div></div>
+        <div class="step"><div class="snum">3</div><div class="sbody"><div class="sh">Only discuss exceptions if it is the sole blocker</div><div class="say">"If price is the only thing holding you back, what monthly number would actually work for you?"</div><div class="say">"If I can get that amount approved, would you be ready to move forward today?"</div><div class="cue">A discount requires management approval. Don't promise one. If there's no real commitment, continue with the normal follow-up.</div></div></div>
+      </div>
+      <div class="note good"><p style="margin-bottom:0"><strong>A good close:</strong> The prospect understands what they're buying, what it costs, and what happens after payment. Ask clearly, then let them decide.</p></div>
+      <div class="btnrow"><button class="btn" data-go="onboarding">Next: Client Onboarding</button><button class="btn ghost" data-go="objections">More Objection Handling</button></div>
+    </section>
+    <!-- ================= FOLLOWUP ================= -->
+    <section class="page" id="page-followup">
+      <div class="eyebrow">Keep the momentum</div>
+      <h1>Follow-Ups</h1>
+      <p class="lead">A good prospect isn't always ready on the first call. Keep the next step clear, give them a reason to respond, and never leave a real opportunity floating without a date.</p>
+      <div class="grid g2">
+        <div class="card"><span class="pill green">Before the demo</span><h3>Protect the booked appointment</h3><p>Confirm about an hour ahead, remind them that their custom demo is ready, and handle schedule changes before they become no-shows.</p><div class="say">"Hey [Name], just confirming we're still good for [time]. We've got your custom demo ready. Let me know if anything changed."</div></div>
+        <div class="card"><span class="pill blue">After the demo</span><h3>Keep the decision moving</h3><p>If they need time, find out exactly what they need, agree on when to talk again, and write it down.</p><div class="say">"No problem. What would you like to think through? Let's put a quick call on the calendar for [day] after you've had a chance."</div></div>
+      </div>
+      <h2>Reschedules and no-shows</h2>
+      <div class="grid g2">
+        <div class="card"><h3 style="margin-top:0">They tell you they need to move it</h3><div class="say">"No worries, thanks for letting me know. Would [day/time] work instead?"</div><p style="margin-bottom:0">Move the event, notify the team, and keep the original context in the notes.</p></div>
+        <div class="card"><h3 style="margin-top:0">They missed the demo</h3><div class="say">"Hey [Name], looks like we missed each other today. We had the custom demo ready for you. If you're still interested, let me know a better time and we can reschedule."</div><p style="margin-bottom:0">Don't mark an unconfirmed or missed meeting as held. Record the outcome honestly.</p></div>
+      </div>
+      <h2>CRM follow-up checklist</h2>
+      <div class="card">
+        <div class="checkline"><span class="checkbox"></span><span>Correct contact, business, and decision maker</span></div>
+        <div class="checkline"><span class="checkbox"></span><span>What they said they needed and what was shown</span></div>
+        <div class="checkline"><span class="checkbox"></span><span>Price response, objections, and buying timeline</span></div>
+        <div class="checkline"><span class="checkbox"></span><span>Next action, owner, and specific date/time</span></div>
+        <div class="checkline"><span class="checkbox"></span><span>Clear status: booked, confirmed, rescheduled, showed, no-show, won, or lost</span></div>
+      </div>
+      <div class="btnrow"><button class="btn" data-go="onboarding">Next: Client Onboarding</button></div>
+    </section>
+    <!-- ================= ONBOARDING ================= -->
+    <section class="page" id="page-onboarding">
+      <div class="eyebrow">Sales Guide</div>
+      <h1>Client Onboarding</h1>
+      <p class="lead">The sale is not finished when the card goes through. Set expectations clearly so the client knows exactly what happens next.</p>
+
+      <div class="onboard-roadmap">
+        <div><span>01</span><strong>Payment</strong><p>Confirm the selected plan and successful payment.</p></div>
+        <div><span>02</span><strong>Onboarding form</strong><p>The client provides business details, services, hours, call handling, and preferences.</p></div>
+        <div><span>03</span><strong>First build</strong><p>Once we have the form and payment, the team normally prepares the first AI receptionist version within about 24 hours.</p></div>
+        <div><span>04</span><strong>Client test</strong><p>We send the version to the client so they can call it, test real scenarios, and tell us what they want changed.</p></div>
+        <div><span>05</span><strong>Revisions</strong><p>The team makes requested changes until the setup is approved.</p></div>
+        <div><span>06</span><strong>Launch</strong><p>We provide the phone number for call forwarding. Once forwarding is configured and the setup is approved, the AI goes live.</p></div>
+      </div>
+
+
+      <h2>What to say after payment</h2>
+      <div class="say">"Awesome. The next step is the onboarding form. It gives our team the business information and call-handling details we need. Once we have the form and payment, we normally have the first version ready within about 24 hours."</div>
+      <a class="linkcard" href="https://api.leadconnectorhq.com/widget/form/8Th7Cqd3SZ7szopsah2L" target="_blank" rel="noopener noreferrer">
+        <div class="lc-body">
+          <div class="lc-t">Client Onboarding Form</div>
+          <div class="lc-d">Send this immediately after payment so the team can begin the build.</div>
+          <span class="urlmono">https://api.leadconnectorhq.com/widget/form/8Th7Cqd3SZ7szopsah2L</span>
+        </div>
+        <span class="lc-go">Open Form &#8599;</span>
+      </a>
+      <div class="say">"We'll send that version over for you to test. If you want anything changed, just tell us and we'll update it. Once you're happy with everything, we'll give you the phone number to forward calls to and we'll get you live."</div>
+
+      <h2>Your responsibility after the sale</h2>
+      <div class="grid g2">
+        <div class="card">
+          <h3 style="margin-top:0">Make the handoff complete</h3>
+          <ul style="margin-bottom:0">
+            <li>Correct client contact information</li>
+            <li>Selected plan and price</li>
+            <li>Important call-handling requirements</li>
+            <li>Any integration or workflow discussed</li>
+            <li>Anything promised or requiring approval</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="margin-top:0">Set realistic expectations</h3>
+          <p>About 24 hours is the normal first-build target after payment and the completed form, not a promise that every complex setup is fully live within 24 hours.</p>
+          <p style="margin-bottom:0">The client reviews the first version before launch so changes can be made.</p>
+        </div>
+      </div>
+
+      <div class="note good"><p style="margin-bottom:0"><strong>A clean onboarding makes the sale feel real.</strong> The client should hang up knowing what they need to do, what Summit Results is doing next, and when they should expect to hear from us.</p></div>
+      <div class="btnrow"><button class="btn" data-go="expectations">Next: Daily Standards</button></div>
+    </section>
+
+    <!-- ================= EXPECTATIONS ================= -->
+    <section class="page" id="page-expectations"><div class="eyebrow">Performance</div><h1>Daily Standards</h1><p class="lead">Consistency matters, but appointment quality matters just as much. The goal is real conversations that lead to qualified demos and clients.</p>
+<div class="statrow"><div class="stat"><div class="stat-v">125</div><div class="stat-l">Minimum outbound dials per full working day</div></div><div class="stat"><div class="stat-v">3</div><div class="stat-l">Qualified appointments per full working day</div></div><div class="stat"><div class="stat-v">Every day</div><div class="stat-l">Activity report submitted by end of each working day</div></div><div class="stat"><div class="stat-v">3</div><div class="stat-l">Sales closed per week</div></div></div>
+<div class="card"><h2>Daily operating checklist</h2><ul><li>Commit at least <strong>6 hours</strong> to each full working day.</li><li>Make at least <strong>125 outbound dials</strong> during each full working day.</li><li>Work toward <strong>3 properly qualified demos</strong> a day, not just three calendar bookings.</li><li>Close at least <strong>3 sales per week</strong>.</li><li>Qualify the decision maker, problem, price, and intent before booking.</li><li>Explain that we're preparing a custom demo and ask the prospect to let us know if plans change.</li><li>Confirm upcoming demos about an hour before their scheduled time.</li><li>Keep every active prospect's CRM record, booking notes, and next step current.</li><li>Communicate blockers or schedule changes promptly. Do not go silent.</li><li><strong>Submit the Daily Activity Form at the end of every working day.</strong> Report actual results, even when you miss the target.</li></ul><button class="btn" data-go="activity">Complete Daily Report</button></div>
+<div class="note warn"><strong>Quality isn't optional.</strong> Three bookings don't count as three qualified appointments if the owners have no interest, haven't heard the price, or don't know why they're meeting. Track attendance and outcomes, learn from no-shows, and ask for coaching when you need it.</div><button class="btn ghost" data-go="home">Back to Home</button></section>
+<section class="page" id="page-activity"><div class="eyebrow">Daily accountability</div><h1>Daily Activity Report</h1><p class="lead">Submit this at the end of <strong>every working day</strong>, even if you fell below target. Be accurate and specific. The targets are 125 dials and 3 qualified appointments per full working day, plus 3 sales per week.</p>
+<div class="card"><form id="daily-activity-form" action="https://hook.us2.make.com/djxfc3u3s2tcgx5tiimv81t1uulr20mk" method="POST" target="activity-fallback-frame">
+<div class="report-grid"><label>Full name <input name="name" type="text" autocomplete="name" required maxlength="100" placeholder="Your full name"></label><label>Work date <input name="date" type="date" required></label>
+<label>Shift start <select name="shift_start" required><option value="" selected disabled>Select time</option><option value="00:00">12:00 AM</option><option value="00:30">12:30 AM</option><option value="01:00">1:00 AM</option><option value="01:30">1:30 AM</option><option value="02:00">2:00 AM</option><option value="02:30">2:30 AM</option><option value="03:00">3:00 AM</option><option value="03:30">3:30 AM</option><option value="04:00">4:00 AM</option><option value="04:30">4:30 AM</option><option value="05:00">5:00 AM</option><option value="05:30">5:30 AM</option><option value="06:00">6:00 AM</option><option value="06:30">6:30 AM</option><option value="07:00">7:00 AM</option><option value="07:30">7:30 AM</option><option value="08:00">8:00 AM</option><option value="08:30">8:30 AM</option><option value="09:00">9:00 AM</option><option value="09:30">9:30 AM</option><option value="10:00">10:00 AM</option><option value="10:30">10:30 AM</option><option value="11:00">11:00 AM</option><option value="11:30">11:30 AM</option><option value="12:00">12:00 PM</option><option value="12:30">12:30 PM</option><option value="13:00">1:00 PM</option><option value="13:30">1:30 PM</option><option value="14:00">2:00 PM</option><option value="14:30">2:30 PM</option><option value="15:00">3:00 PM</option><option value="15:30">3:30 PM</option><option value="16:00">4:00 PM</option><option value="16:30">4:30 PM</option><option value="17:00">5:00 PM</option><option value="17:30">5:30 PM</option><option value="18:00">6:00 PM</option><option value="18:30">6:30 PM</option><option value="19:00">7:00 PM</option><option value="19:30">7:30 PM</option><option value="20:00">8:00 PM</option><option value="20:30">8:30 PM</option><option value="21:00">9:00 PM</option><option value="21:30">9:30 PM</option><option value="22:00">10:00 PM</option><option value="22:30">10:30 PM</option><option value="23:00">11:00 PM</option><option value="23:30">11:30 PM</option></select></label><label>Shift end <select name="shift_end" required><option value="" selected disabled>Select time</option><option value="00:00">12:00 AM</option><option value="00:30">12:30 AM</option><option value="01:00">1:00 AM</option><option value="01:30">1:30 AM</option><option value="02:00">2:00 AM</option><option value="02:30">2:30 AM</option><option value="03:00">3:00 AM</option><option value="03:30">3:30 AM</option><option value="04:00">4:00 AM</option><option value="04:30">4:30 AM</option><option value="05:00">5:00 AM</option><option value="05:30">5:30 AM</option><option value="06:00">6:00 AM</option><option value="06:30">6:30 AM</option><option value="07:00">7:00 AM</option><option value="07:30">7:30 AM</option><option value="08:00">8:00 AM</option><option value="08:30">8:30 AM</option><option value="09:00">9:00 AM</option><option value="09:30">9:30 AM</option><option value="10:00">10:00 AM</option><option value="10:30">10:30 AM</option><option value="11:00">11:00 AM</option><option value="11:30">11:30 AM</option><option value="12:00">12:00 PM</option><option value="12:30">12:30 PM</option><option value="13:00">1:00 PM</option><option value="13:30">1:30 PM</option><option value="14:00">2:00 PM</option><option value="14:30">2:30 PM</option><option value="15:00">3:00 PM</option><option value="15:30">3:30 PM</option><option value="16:00">4:00 PM</option><option value="16:30">4:30 PM</option><option value="17:00">5:00 PM</option><option value="17:30">5:30 PM</option><option value="18:00">6:00 PM</option><option value="18:30">6:30 PM</option><option value="19:00">7:00 PM</option><option value="19:30">7:30 PM</option><option value="20:00">8:00 PM</option><option value="20:30">8:30 PM</option><option value="21:00">9:00 PM</option><option value="21:30">9:30 PM</option><option value="22:00">10:00 PM</option><option value="22:30">10:30 PM</option><option value="23:00">11:00 PM</option><option value="23:30">11:30 PM</option></select></label>
+<label>Outbound calls made <input name="calls" type="number" min="0" step="1" required placeholder="125"></label><label>Qualified appointments booked <input name="appointments" type="number" min="0" step="1" required placeholder="0"></label><label>Sales closed <input name="sales" type="number" min="0" step="1" required placeholder="0"></label></div>
+<div id="low-dials-reason-wrap" class="report-wide" hidden><label class="report-wide" for="low-dials-reason">Why did you make fewer than 125 dials today?<textarea id="low-dials-reason" name="below_target_reason" rows="3" maxlength="2000" placeholder="Explain what prevented you from reaching 125 calls."></textarea></label></div>
+<p class="report-help">If your shift crosses midnight, enter the actual start and end times.</p>
+<label class="report-wide">Main objection you encountered<textarea name="main_objection" rows="3" required maxlength="2000" placeholder="What concern came up most, and how did you respond?"></textarea></label>
+<label class="report-wide">What did you do well today?<textarea name="did_well" rows="3" required maxlength="2000" placeholder="Be specific about calls, conversations, and follow-through."></textarea></label>
+<label class="report-wide">What do you want to improve?<textarea name="improve" rows="3" required maxlength="2000" placeholder="What will you do differently tomorrow?"></textarea></label>
+<div class="note"><strong>Before submitting:</strong> Check your numbers against your dialer and CRM. Submitting the form does not replace CRM updates.</div>
+<button class="btn" id="activity-submit" type="submit">Submit Daily Activity</button><p id="activity-status" role="status" aria-live="polite" class="report-status"></p></form><iframe name="activity-fallback-frame" title="Submission processing" hidden></iframe></div></section>
+    <div class="sales-modal" id="script-roi-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="script-roi-title">
+      <div class="sales-modal-backdrop" data-close-script-roi></div>
+      <div class="sales-modal-panel">
+        <div class="sales-modal-head">
+          <div>
+            <span class="roi-kicker">LIVE CALL CALCULATOR</span>
+            <h2 id="script-roi-title">Turn their numbers into the value conversation.</h2>
+            <p>Use the prospect's own estimates. Change the recovery rate if they believe a different assumption is more realistic.</p>
+          </div>
+          <button class="modal-x" type="button" data-close-script-roi aria-label="Close calculator">&times;</button>
+        </div>
+        <div class="sales-modal-fields">
+          <label>Missed calls<input id="script-roi-calls" type="number" min="0" step="1" placeholder="e.g. 10"></label>
+          <label>Period<select id="script-roi-period"><option value="day">Per day</option><option value="week">Per week</option><option value="month">Per month</option></select></label>
+          <label>Average customer value<input id="script-roi-ticket" type="number" min="1" step="1" placeholder="e.g. 500"></label>
+          <label>Estimated recovery rate<div class="percent-input"><input id="script-roi-rate" type="number" min="1" max="100" step="1" value="25"><span>%</span></div></label>
+        </div>
+        <div class="sales-modal-results">
+          <div class="modal-primary">
+            <span>ESTIMATED RECOVERED GROSS SALES / MONTH</span>
+            <strong id="script-roi-revenue">—</strong>
+            <small>Based on the recovery rate above</small>
+          </div>
+          <div class="modal-result-grid">
+            <div><span>Missed calls / month</span><strong id="script-roi-monthly">—</strong></div>
+            <div><span>Estimated captured customers</span><strong id="script-roi-customers">—</strong></div>
+            <div><span>Cost per captured customer</span><strong id="script-roi-cac">—</strong></div>
+            <div><span>Average customer value</span><strong id="script-roi-ticket-out">—</strong></div>
+            <div><span>Customers to cover $397</span><strong id="script-roi-breakeven">—</strong></div>
+            <div><span>Recovered sales vs. $397</span><strong id="script-roi-multiple">—</strong></div>
+          </div>
+          <div class="modal-talk-track">
+            <span>USE THIS ON THE CALL</span>
+            <p id="script-roi-talk">Enter their numbers above.</p>
+          </div>
+        </div>
+        <div class="sales-modal-foot">This calculator is a sales-conversation aid, not a forecast. Actual conversion, revenue, margins, and recovered opportunities vary by business.</div>
+      </div>
+    </div>
+    </main>
+  </div>
+</div>
+
+<div class="report-confirm-overlay" id="report-confirm-overlay" hidden>
+  <div class="report-confirm-card" role="dialog" aria-modal="true" aria-labelledby="report-confirm-title" aria-describedby="report-confirm-description">
+    <div class="report-confirm-icon" aria-hidden="true">&#10003;</div>
+    <h2 id="report-confirm-title">Report submitted!</h2>
+    <p id="report-confirm-description">Your daily activity report has been sent.</p>
+    <button class="btn" type="button" id="report-confirm-close">Done</button>
+  </div>
+</div>
+<script>
+(function(){
+  var pages = ["home","start","process","product","pricing","scripts","qualification","booking","objections","closing","followup","onboarding","expectations","activity"];
+  var sidebar = document.getElementById('sidebar');
+  var scrim   = document.getElementById('scrim');
+  var burger  = document.getElementById('burger');
+
+  function closeNav(){
+    sidebar.classList.remove('open');
+    scrim.classList.remove('open');
+    burger.setAttribute('aria-expanded','false');
+    document.body.style.overflow='';
+  }
+  function openNav(){
+    sidebar.classList.add('open');
+    scrim.classList.add('open');
+    burger.setAttribute('aria-expanded','true');
+    document.body.style.overflow='hidden';
+  }
+  burger.addEventListener('click', function(){
+    sidebar.classList.contains('open') ? closeNav() : openNav();
+  });
+  scrim.addEventListener('click', closeNav);
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeNav(); });
+
+  function show(id, push){
+    if(pages.indexOf(id) === -1) id = 'home';
+    var i;
+    var ps = document.querySelectorAll('.page');
+    for(i=0;i<ps.length;i++) ps[i].classList.remove('active');
+    var target = document.getElementById('page-'+id);
+    if(target) target.classList.add('active');
+    if(id==='activity'){
+      var activityDayField=document.querySelector('#daily-activity-form [name="date"]');
+      if(activityDayField){
+        var nowDay=new Date();
+        activityDayField.value=new Date(nowDay.getTime()-nowDay.getTimezoneOffset()*60000).toISOString().slice(0,10);
+      }
+    }
+
+    var links = document.querySelectorAll('#navlist .navlink');
+    for(i=0;i<links.length;i++){
+      links[i].classList.toggle('active', links[i].getAttribute('data-go') === id);
+    }
+    if(push !== false && location.hash !== '#'+id){ history.pushState(null,'','#'+id); }
+    closeNav();
+    window.scrollTo(0,0);
+    var c = document.getElementById('content');
+    if(c) c.scrollTop = 0;
+  }
+
+  document.addEventListener('click', function(e){
+    var el = e.target.closest ? e.target.closest('[data-go]') : null;
+    if(!el) return;
+    e.preventDefault();
+    show(el.getAttribute('data-go'), true);
+  });
+
+  window.addEventListener('hashchange', function(){ show((location.hash||'#home').slice(1), false); });
+  window.addEventListener('popstate', function(){ show((location.hash||'#home').slice(1), false); });
+
+  var reportConfirm=document.getElementById('report-confirm-overlay');
+  var reportConfirmClose=document.getElementById('report-confirm-close');
+  var reportConfirmPreviousFocus=null;
+  function closeReportConfirmation(){
+    reportConfirm.hidden=true;
+    if(reportConfirmPreviousFocus&&reportConfirmPreviousFocus.focus)reportConfirmPreviousFocus.focus();
+  }
+  function showReportConfirmation(){
+    reportConfirmPreviousFocus=document.activeElement;
+    reportConfirm.hidden=false;
+    reportConfirmClose.focus();
+  }
+  reportConfirmClose.addEventListener('click',closeReportConfirmation);
+  reportConfirm.addEventListener('click',function(e){if(e.target===reportConfirm)closeReportConfirmation();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!reportConfirm.hidden)closeReportConfirmation();});
+
+  // End-of-day activity report. URL-encoded POST avoids a cross-origin preflight.
+  var activityForm=document.getElementById('daily-activity-form');
+  if(activityForm){
+    var activityDate=activityForm.elements.namedItem('date');
+    if(activityDate&&!activityDate.value){var now=new Date();var local=new Date(now.getTime()-now.getTimezoneOffset()*60000);activityDate.value=local.toISOString().slice(0,10);}
+    var dialCount=activityForm.elements.namedItem('calls');
+    var belowTargetWrap=document.getElementById('low-dials-reason-wrap');
+    var belowTargetReason=document.getElementById('low-dials-reason');
+    function syncBelowTargetReason(){
+      var entered=dialCount.value.trim()!=='';
+      var below=entered&&dialCount.validity.valid&&Number(dialCount.value)<125;
+      belowTargetWrap.hidden=!below;
+      belowTargetReason.required=below;
+      belowTargetReason.disabled=!below;
+      if(!below)belowTargetReason.value='';
+    }
+    // Respond after entry is completed, not while each digit is typed.
+    dialCount.addEventListener('blur',syncBelowTargetReason);
+    dialCount.addEventListener('change',syncBelowTargetReason);
+    syncBelowTargetReason();
+    activityForm.addEventListener('submit',async function(e){
+      e.preventDefault();
+      syncBelowTargetReason();
+      if(!activityForm.reportValidity())return;
+      var submit=document.getElementById('activity-submit'),status=document.getElementById('activity-status');
+      var start=activityForm.elements.namedItem('shift_start').value,end=activityForm.elements.namedItem('shift_end').value;
+      var formData=new FormData(activityForm);
+      var params=new URLSearchParams();
+      formData.forEach(function(value,key){params.append(key,String(value));});
+      params.append('hours_worked',start+' to '+end);
+      params.append('submitted_at',new Date().toISOString());
+      params.append('daily_dial_target','125');
+      params.append('daily_qualified_appointments_target','3');
+      submit.disabled=true;submit.textContent='Submitting…';status.textContent='Sending report…';status.className='report-status';
+      try{
+        await fetch('https://hook.us2.make.com/djxfc3u3s2tcgx5tiimv81t1uulr20mk',{method:'POST',mode:'no-cors',body:params});
+        status.textContent='';
+        showReportConfirmation();
+        status.className='report-status success';
+        activityForm.reset();
+        syncBelowTargetReason();
+        if(activityDate){var d=new Date();activityDate.value=new Date(d.getTime()-d.getTimezoneOffset()*60000).toISOString().slice(0,10);}
+      }catch(err){
+        status.textContent='Could not submit your report. Please try again.';
+        status.className='report-status error';
+      }finally{submit.disabled=false;submit.textContent='Submit Daily Activity';}
+    });
+  }
+
+
+
+  // Keep the cold-call and closing tabs separate.
+  function setupTabs(wrapId,pageId){
+    var tabWrap=document.getElementById(wrapId);
+    var tabPage=document.getElementById('page-'+pageId);
+    if(!tabWrap||!tabPage)return;
+    tabWrap.addEventListener('click', function(e){
+      var t = e.target.closest('.tab');
+      if(!t) return;
+      var key = t.getAttribute('data-tab');
+      var tabs = tabWrap.querySelectorAll('.tab');
+      for(var i=0;i<tabs.length;i++) tabs[i].classList.toggle('active', tabs[i]===t);
+      var panes = tabPage.querySelectorAll('.tabpane');
+      for(var j=0;j<panes.length;j++) panes[j].classList.toggle('active', panes[j].id === 'tab-'+key);
+      window.scrollTo(0,0);
+    });
+  }
+  setupTabs('scripttabs','scripts');
+  setupTabs('closingtabs','closing');
+
+
+
+  var scriptRoiModal=document.getElementById('script-roi-modal');
+  var openScriptRoi=document.querySelectorAll('.open-script-roi');
+  var scriptCalls=document.getElementById('script-roi-calls');
+  var scriptPeriod=document.getElementById('script-roi-period');
+  var scriptTicket=document.getElementById('script-roi-ticket');
+  var scriptRate=document.getElementById('script-roi-rate');
+  function openScriptRoiModal(){scriptRoiModal.classList.add('open');scriptRoiModal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';scriptCalls.focus();}
+  function closeScriptRoiModal(){scriptRoiModal.classList.remove('open');scriptRoiModal.setAttribute('aria-hidden','true');document.body.style.overflow='';}
+  openScriptRoi.forEach(function(el){el.addEventListener('click',openScriptRoiModal);});
+  document.querySelectorAll('[data-close-script-roi]').forEach(function(el){el.addEventListener('click',closeScriptRoiModal);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&scriptRoiModal.classList.contains('open'))closeScriptRoiModal();});
+  var scriptDollars=new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0});
+  var scriptDollars2=new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',minimumFractionDigits:2,maximumFractionDigits:2});
+  var scriptQty=new Intl.NumberFormat('en-US',{maximumFractionDigits:1});
+  function setScriptRoi(id,value){var el=document.getElementById(id);if(el)el.textContent=value;}
+  function updateScriptRoi(){
+    var calls=Number(scriptCalls.value),ticket=Number(scriptTicket.value),rate=Number(scriptRate.value);
+    var valid=scriptCalls.value!==''&&scriptTicket.value!==''&&Number.isFinite(calls)&&Number.isFinite(ticket)&&Number.isFinite(rate)&&calls>=0&&ticket>0&&rate>0&&rate<=100;
+    if(!valid){['script-roi-revenue','script-roi-monthly','script-roi-customers','script-roi-cac','script-roi-ticket-out','script-roi-breakeven','script-roi-multiple'].forEach(function(id){setScriptRoi(id,'—');});setScriptRoi('script-roi-talk','Enter their numbers above.');return;}
+    var factor=scriptPeriod.value==='day'?30:scriptPeriod.value==='week'?52/12:1;
+    var monthly=calls*factor,customers=monthly*(rate/100),revenue=customers*ticket,cac=customers>0?397/customers:0,breakeven=Math.ceil(397/ticket),multiple=revenue/397;
+    setScriptRoi('script-roi-monthly',scriptQty.format(monthly));
+    setScriptRoi('script-roi-customers',scriptQty.format(customers));
+    setScriptRoi('script-roi-revenue',scriptDollars.format(revenue));
+    setScriptRoi('script-roi-cac',customers>0?scriptDollars2.format(cac):'—');
+    setScriptRoi('script-roi-ticket-out',scriptDollars.format(ticket));
+    setScriptRoi('script-roi-breakeven',String(breakeven));
+    setScriptRoi('script-roi-multiple',multiple.toFixed(1)+'×');
+    var periodLabel=scriptPeriod.value==='day'?'day':scriptPeriod.value==='week'?'week':'month';
+    setScriptRoi('script-roi-talk','You said about '+scriptQty.format(calls)+' calls per '+periodLabel+' are missed, and an average customer is worth about '+scriptDollars.format(ticket)+'. That is roughly '+scriptQty.format(monthly)+' missed calls a month. At '+scriptQty.format(rate)+'%, that would be about '+scriptQty.format(customers)+' customers, or around '+scriptDollars.format(revenue)+' in gross sales. Against the $397 monthly cost, that is roughly '+(customers>0?scriptDollars2.format(cac):'—')+' per captured customer for a customer worth about '+scriptDollars.format(ticket)+'.');
+  }
+  [scriptCalls,scriptPeriod,scriptTicket,scriptRate].forEach(function(el){if(el){el.addEventListener('input',updateScriptRoi);el.addEventListener('change',updateScriptRoi);}});
+  updateScriptRoi();
+
+
+
+  show((location.hash||'#home').slice(1), false);
+})();
+</script>
+</body>
+</html>
