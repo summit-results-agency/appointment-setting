@@ -625,7 +625,7 @@ h3{font-size:17px;letter-spacing:-.025em}
 @media(max-width:460px){.sales-modal-fields,.modal-result-grid{grid-template-columns:1fr}.modal-result-grid>div{border-right:0!important}.modal-result-grid>div:nth-last-child(2){border-bottom:1px solid #354056!important}.modal-primary strong{font-size:36px}}
 
 .report-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-bottom:14px}.report-grid label,.report-wide{display:flex;flex-direction:column;gap:6px;font-weight:700;font-size:14px;margin-bottom:14px}.report-grid input,.report-grid select,.report-wide textarea{border:1px solid var(--line);border-radius:10px;padding:12px;font:inherit;width:100%;background:#fff;color:var(--text)}.report-grid input:focus,.report-grid select:focus,.report-wide textarea:focus{outline:2px solid var(--blue);outline-offset:1px}.report-help{font-size:13px;color:var(--muted)}.report-status{margin-top:12px;font-weight:700}.report-status.error{color:var(--red)}.report-status.success{color:var(--green)}@media(max-width:620px){.report-grid{grid-template-columns:1fr}}
-#low-dials-reason-wrap[hidden]{display:none!important}
+#low-dials-reason-wrap[hidden],#low-appointments-reason-wrap[hidden]{display:none!important}
 
 /* Daily report confirmation */
 .report-confirm-overlay[hidden]{display:none!important}
@@ -1329,6 +1329,7 @@ h3{font-size:17px;letter-spacing:-.025em}
     dialCount.addEventListener('change',syncBelowTargetReason);
     appointmentCount.addEventListener('blur',syncBelowTargetReason);
     appointmentCount.addEventListener('change',syncBelowTargetReason);
+    appointmentCount.addEventListener('input',syncBelowTargetReason);
     syncBelowTargetReason();
     activityForm.addEventListener('submit',async function(e){
       e.preventDefault();
